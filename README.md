@@ -18,7 +18,8 @@ cd ./fuzzbench && make
 
 
 ### VM(VirtualMachine) 
-We also provide a VM image file which contain all contents to evaluate the experiments. 
+We also provide a VM image file which contain all contents to evaluate the experiments.
+The VM image is built on [VirtualBox 7.0](https://www.virtualbox.org).
 You can donwload the VM image from the following link.
 
 # How to use
