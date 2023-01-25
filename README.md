@@ -1,7 +1,7 @@
 # SeamFuzz-Artifact
 This repository is for the implementation of our paper accepted in ICSE 2023, "Learning Seed-Adaptive Mutation Strategies for
 Greybox Fuzzing".
-Our tool, [SeamFuzz](https://github.com/kupl/SeamFuzz-public), is a grey-box mutation-based fuzzer built on [AFL++](https://github.com/AFLplusplus/AFLplusplus).
+Our tool, [SeamFuzz](https://github.com/kupl/SeamFuzz-public), is a grey-box mutation-based fuzzer built on [AFL++](https://github.com/AFLplusplus/AFLplusplus)-v3.15++.
 
 # Setup
 All experiments in our paper was done on [FuzzBench](https://github.com/google/fuzzbench) framework,
