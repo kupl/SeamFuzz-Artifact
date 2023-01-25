@@ -49,6 +49,7 @@ The options for `main_eval.sh` is for generating a local experiment configuratio
 ```
 
 `running_table[N].sh` will make a local experiment configuration file(`local-experiment-config.yaml`) for running FuzzBench on the local machine, running FuzzBench with the benchmark programs and fuzzers used in Table [N] in our paper, and generate result table for them.
+For example, running_table3.sh will evaluate the experiments used to the Table 3 in our paper.
 
 The options for `running_table[N].sh` is the same as the ones for `main_eval.sh`
 
