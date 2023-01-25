@@ -138,11 +138,11 @@ def read_probs(path):
         line = prob_file.readline()
         if not line: break
 
-        bandit_info = line.split()
-
         if '-' in line:
             time_to_sp = 1
             continue
+
+        bandit_info = line.split()
 
         if time_to_sp == 1:
             sp_result.append(tuple(bandit_info))

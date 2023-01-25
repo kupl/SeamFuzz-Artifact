@@ -138,11 +138,11 @@ def read_probs(path):
         line = prob_file.readline()
         if not line: break
 
-        bandit_info = line.split()
-
         if '-' in line:
             time_to_sp = 1
             continue
+
+        bandit_info = line.split()
 
         if time_to_sp == 1:
             sp_result.append(tuple(bandit_info))
@@ -161,6 +161,13 @@ def write_selected_mut(path, op, sp):
     param_file.write("-\n")
 
     param_file.close()
+    
+    param_file = open(path, 'a')
+    
+    for i in range(len(sp)):
+        param_file.write(str(int(sp[i] * 1000)) + '\n')
+    
+    param_file.close()
 
     return
 
@@ -177,6 +184,7 @@ def get_params(
     sp_list = []
 
     op_agent.take_actions(1)
+    sp_agent.take_actions(1)
 
     write_selected_mut(path + "_next", op_agent.rewards_log.selected, sp_agent.rewards_log.selected)
     
@@ -184,11 +192,10 @@ def get_params(
 
 if __name__ == '__main__':
 
-    (param_probs, dummy) = read_probs(sys.argv[1])
+    (op_probs, sp_probs) = read_probs(sys.argv[1])
 
-    bernoulli_bandits_op = [BernoulliBandit (p) for p in param_probs]
-    dummy = []
+    bernoulli_bandits_op = [BernoulliBandit (p) for p in op_probs]
+    bernoulli_bandits_sp = [BernoulliBandit (p) for p in sp_probs]
 
-    get_params(BayesianAgent('bernoulli'), BayesianAgent('bernoulli'), bernoulli_bandits_op, dummy, sys.argv[1])
-
+    get_params(BayesianAgent('bernoulli'), BayesianAgent('bernoulli'), bernoulli_bandits_op, bernoulli_bandits_sp, sys.argv[1])
 
