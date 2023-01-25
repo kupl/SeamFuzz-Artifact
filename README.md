@@ -43,7 +43,7 @@ The options for `main_eval.sh` is for generating a local experiment configuratio
 ```
 
 Note that running FuzzBench requires lots of memory and storage. It may not work properly when running `main_eval.sh` script with the default settings. 
-For example, running `main_eval.sh` without any additional options requires at least 840 (20 trials * 14 benchmarks * 3 fuzzers) CPU power.
+For example, running `main_eval.sh` without any additional options requires at least 840 (20 trials * 14 benchmarks * 3 fuzzers) CPU power. (The version we used FuzzBench assigns 1 CPU power to each experiment on a local machine)
 If FuzzBench is eventually dead with `EOF` error, please set [TRIALS] option to a value less than 20 to reduce memory and storage usage. 
 
 ### Table N
