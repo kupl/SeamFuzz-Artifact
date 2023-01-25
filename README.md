@@ -29,10 +29,17 @@ Once the setup is properly prepared (or using VM), enter the following command t
 ./main_eval.sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME]
 ```
 
-`main_eval.sh` will make a local experiment configuration file for running FuzzBench on the local machine, running FuzzBench with all benchmark programs and fuzzers we used in our paper, and generate result table for Table 2.
+`main_eval.sh` will make a local experiment configuration file(`local-experiment-config.yaml`) for running FuzzBench on the local machine, running FuzzBench with all benchmark programs and fuzzers we used in our paper, and generate result table for Table 2.
 
-where `[TRIALS]` represents the total experiment trials for each benchmark and each tool, `[TIME]` is the time limitation, `[EXP_PATH]` is the path to the directory which 
+The options for `main_eval.sh` is for generating a local experiment configuration file, and the option descriptions are as follows:
 
+```
+ [TRIALS]: the number of trials of the intended experiments. The default value is 20
+ [TIME]: the seconds for the running experiments. The default value is 86400, which is 24 hours
+ [EXP_PATH]: the path for storing the running data of FuzzBench. The default path is [the working directory]/data/
+ [REPORT]: the path for storing the report of FuzzBench. The default path is [the working directory]/report/
+ [EXP_NAME]: the name of the experiments which will be stored in [EXP_PATH]. The default name is maintable
+```
 
 # Contact
 Myungho Lee (e-mail: myungho_lee@korea.ac.kr)
