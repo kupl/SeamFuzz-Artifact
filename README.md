@@ -24,6 +24,8 @@ You can donwload the VM image from the following link.
 # How to use
 Once the setup is properly prepared (or using VM), enter the following command to reproduce the main evlauation results in our paper, which is Table 2 in Section IV.
 
+## With Script Files
+
 ### Table 2 & Figure 3
 
 ```
