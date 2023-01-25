@@ -9,16 +9,24 @@ and therefore, the setup environments for our artifact is the same as the one fo
 Please refer to the following [link](https://google.github.io/fuzzbench/) to establish the experimental environments.
 You can also follow the instructions below to construct/evaluate SeamFuzz on FuzzBench.
 
-We modified some parts of FuzzBench as follows:
+We modified some parts of FuzzBench to evaluate some benchmark programs (objdump, infotocap, podofopdfinfo, magma_libxml2_xmllint) as follows:
 ```
 fuzzbench
 └── experiment
 |      └── measurer
-|             └── run_coverage.py : do_coverage_run function is modified to properly evaluate some benchmark programs (ex. infotocap)
+|             └── run_coverage.py : "do_coverage_run" function is modified to properly evaluate some benchmark programs
 └── fuzzers
 |      └── afl
-|           └── fuzzer.py         : run_afl_fuzz function is modified to properly evaluate some benchmark programs (ex. infotocap)
+|      |    └── fuzzer.py         : "run_afl_fuzz" function is modified to properly evaluate some benchmark programs
+       |
+       └── aflpp : "build.Dockerfile" is modified to make the version of "AFL++" be the same as the one of SeamFuzz
+       |
+       └── aflppmopt : "build.Dockerfile" is modified to make the version of "AFL++" be the same as the one of SeamFuzz
 ```
+If the users want to evaluate our fuzzers on the FuzzBench framework from original git, 
+please modify the files above.
+Otherwise, FuzzBench may not evaluate the benchmark programs.
+
 
 ### From Source
 Following command will construct the experimental environments.  
