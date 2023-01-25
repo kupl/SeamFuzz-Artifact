@@ -10,12 +10,28 @@ Please refer to the following [link](https://google.github.io/fuzzbench/) to est
 You can also follow the instructions below to construct/evaluate SeamFuzz on FuzzBench.
 
 ### From Source
-To setupt the 
+Following command will construct the experimental environments.  
+
+```
+cd ./fuzzbench && make
+```
 
 
 ### VM(VirtualMachine) 
 We also provide a VM image file which contain all contents to evaluate the experiments. 
 You can donwload the VM image from the following link.
+
+# How to use
+Once the setup is properly prepared (or using VM), enter the following command to reproduce the main evlauation results in our paper, which is Table 2 in Section IV.
+
+
+```
+./main_eval.sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME]
+```
+
+`main_eval.sh` will make a local experiment configuration file for running FuzzBench on the local machine, running FuzzBench with all benchmark programs and fuzzers we used in our paper, and generate result table for Table 2.
+
+where `[TRIALS]` represents the total experiment trials for each benchmark and each tool, `[TIME]` is the time limitation, `[EXP_PATH]` is the path to the directory which 
 
 
 # Contact
