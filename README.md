@@ -42,6 +42,8 @@ The options for `main_eval.sh` is for generating a local experiment configuratio
  [EXP_NAME]: the name of the experiments which will be stored in [EXP_PATH]. The default name is maintable
 ```
 
+Note that running FuzzBench requires lots of memory and storage. It may not work properly when running `main_eval.sh` script with the default settings. In this case, please set [TRIALS] option with the value smaller than 20 to reduce the usage of memory and storage. 
+
 ### Table N
 
 ```
