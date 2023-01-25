@@ -87,6 +87,12 @@ python3.9 ./fuzzbench/experiment/run_experiment.py -cb [N] -a -c ./fuzzbench/loc
 -b [BENCHMARKS] -f [FUZZERS] -e [EXP_NAME]
 ```
 
+```
+-cb [N]: cuncurrent building options. Higher the value, faster the building process. 
+[BENCHMARKS] : give the full name of the the programs which will be used for experiments. The benchmark programs are in ./fuzzbench/benchmarks directory. ex) "-b arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer"
+[FUZZERS] : give the full name of the fuzzers which will be used for experiments. The fuzzers are in ./fuzzbench/fuzzers directory. ex) "-f aflpp aflppmopt seamfuzz"
+```
+
 # Contact
 Myungho Lee (e-mail: myungho_lee@korea.ac.kr)
 
