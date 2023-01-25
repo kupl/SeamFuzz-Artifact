@@ -2,7 +2,7 @@
 # a running script for SeamFuzz artifact accpeted in ICSE'23
 # As all experiments were evaluated on FuzzBench framework, 
 # this script will run the fuzzbench framework with the given local experiment configurations, and produce the results of the main evaluation. 
-# TRIALS: the number of trials of the intended experiments. The default value is 20
+# TRIALS: the number of trials of the intended experiments. The default value is 5
 # TIME: the seconds for the running experiments. The default value is 86400, which is 24 hours
 # [EXP_PATH]: the path for storing the running data of FuzzBench. must be given as an absolute path. The default path is the working directory/data/
 # [REPORT]: the path for storing the report of FuzzBench. must be given as an absolute path. The default path is the working directory/report/
@@ -14,7 +14,7 @@ SHELL_PATH=`pwd -P`
 CONFIG="local-experiment-config.yaml"
 FUZZBENCH_PATH="$SHELL_PATH/fuzzbench/"
 
-TRIALS=20
+TRIALS=5
 TIME=86400
 EXP_PATH="$SHELL_PATH/data/"
 REPORT="$SHELL_PATH/report/"
