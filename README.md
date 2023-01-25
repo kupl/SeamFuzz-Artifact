@@ -29,11 +29,12 @@ please modify the files above.
 Otherwise, FuzzBench may not evaluate the benchmark programs.
 
 
+
 ### From Source
 Following command will construct the experimental environments.  
 
 ```
-cd ./fuzzbench && make
+cd ./fuzzbench && ./setup.sh
 ```
 
 
