@@ -12,6 +12,7 @@ You can also follow the instructions below to construct/evaluate SeamFuzz on Fuz
 We modified some parts of FuzzBench to evaluate some benchmark programs (objdump, infotocap, podofopdfinfo, magma_libxml2_xmllint) as follows:
 ```
 fuzzbench
+└── requirements.txt : modify some parts of the requirements.txt to make it work on > python3.9
 └── experiment
 |      └── measurer
 |             └── run_coverage.py : "do_coverage_run" function is modified to properly evaluate some benchmark programs
