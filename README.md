@@ -74,6 +74,18 @@ result
 └── unique_vul_venn_diagram.png : A Venn diagram for the unique vulnerabilities found by each tool (follows FuzzBench criteria)
 ```
 
+## Without Script file
+You may want to run FuzzBench with your own flavors in usage.
+
+```
+./make_local_config.sh $TRIALS $TIME $EXP_PATH $REPORT
+cp ./local-experiment-config.yaml ./fuzzbench/
+
+PYTHONPATH=./fuzzbench/ \
+python3.9 ./fuzzbench/experiment/run_experiment.py -cb [N] -a -c ./fuzzbench/local-experiment-config.yaml \
+-b [BENCHMARKS] -f [FUZZERS] -e [EXP_NAME]
+```
+
 # Contact
 Myungho Lee (e-mail: myungho_lee@korea.ac.kr)
 
