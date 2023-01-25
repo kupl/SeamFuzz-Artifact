@@ -24,7 +24,7 @@ You can donwload the VM image from the following link.
 # How to use
 Once the setup is properly prepared (or using VM), enter the following command to reproduce the main evlauation results in our paper, which is Table 2 in Section IV.
 
-## With Script Files
+## With Reproducing-Script Files
 
 ### Table 2 & Figure 3
 
@@ -74,7 +74,7 @@ result
 └── unique_vul_venn_diagram.png : A Venn diagram for the unique vulnerabilities found by each tool (follows FuzzBench criteria)
 ```
 
-## Without Script file
+## Without Reproducing-Script file 
 You may want to run FuzzBench with your own flavors in usage.
 
 ```
