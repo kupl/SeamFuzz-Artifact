@@ -24,12 +24,13 @@ You can donwload the VM image from the following link.
 # How to use
 Once the setup is properly prepared (or using VM), enter the following command to reproduce the main evlauation results in our paper, which is Table 2 in Section IV.
 
+### Table 2 & Figure 3
 
 ```
 ./main_eval.sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME]
 ```
 
-`main_eval.sh` will make a local experiment configuration file(`local-experiment-config.yaml`) for running FuzzBench on the local machine, running FuzzBench with all benchmark programs and fuzzers we used in our paper, and generate result table for Table 2.
+`main_eval.sh` will make a local experiment configuration file(`local-experiment-config.yaml`) for running FuzzBench on the local machine, running FuzzBench with all benchmark programs and fuzzers we used in our paper, and generate result table and venn-diagram for Table 2 and Figure 3.
 
 The options for `main_eval.sh` is for generating a local experiment configuration file, and the option descriptions are as follows:
 
@@ -40,6 +41,16 @@ The options for `main_eval.sh` is for generating a local experiment configuratio
  [REPORT]: the path for storing the report of FuzzBench. The default path is [the working directory]/report/
  [EXP_NAME]: the name of the experiments which will be stored in [EXP_PATH]. The default name is maintable
 ```
+
+### Table N
+
+```
+./running_table[N].sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME]
+```
+
+`running_table[N].sh` will make a local experiment configuration file(`local-experiment-config.yaml`) for running FuzzBench on the local machine, running FuzzBench with the benchmark programs and fuzzers used in Table [N] in our paper, and generate result table for them.
+
+The options for `running_table[N].sh` is the same as the ones for `main_eval.sh`
 
 # Contact
 Myungho Lee (e-mail: myungho_lee@korea.ac.kr)
