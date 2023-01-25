@@ -9,6 +9,17 @@ and therefore, the setup environments for our artifact is the same as the one fo
 Please refer to the following [link](https://google.github.io/fuzzbench/) to establish the experimental environments.
 You can also follow the instructions below to construct/evaluate SeamFuzz on FuzzBench.
 
+We modified some parts of FuzzBench as follows:
+```
+fuzzbench
+└── experiment
+|      └── measurer
+|             └── run_coverage.py : do_coverage_run function is modified to properly evaluate some benchmark programs (ex. infotocap)
+└── fuzzers
+|      └── afl
+|           └── fuzzer.py         : run_afl_fuzz function is modified to properly evaluate some benchmark programs (ex. infotocap)
+```
+
 ### From Source
 Following command will construct the experimental environments.  
 
