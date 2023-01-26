@@ -53,3 +53,8 @@ The VM image is built on [VirtualBox 7.0](https://www.virtualbox.org).
 You can donwload the VM image from the following link.
 
 The user password is set to "1234"
+
+
+### Building SeamFuzz wihtout FuzzBench
+The source code for SeamFuzz is on ./fuzzbench/fuzzers/seamfuzz/afl. 
+By following the instructions in [AFL++](https://github.com/AFLplusplus/AFLplusplus), build SeamFuzz on a local machine.
