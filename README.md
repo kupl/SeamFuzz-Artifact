@@ -3,6 +3,9 @@ This repository is for the implementation of our paper accepted in ICSE 2023, "L
 Greybox Fuzzing".
 Our tool, [SeamFuzz](https://github.com/kupl/SeamFuzz-public), is a grey-box mutation-based fuzzer built on [AFL++](https://github.com/AFLplusplus/AFLplusplus)-v3.15++.
 
+# Requirements
+Please refer [REQUIEMENTS.md](https://github.com/kupl/SeamFuzz-Artifact/REQUIREMENTS.md] for the operating system and hardware requirements.
+
 # Setup
 All experiments in our paper was done on [FuzzBench](https://github.com/google/fuzzbench) framework,
 and therefore, the setup environments for our artifact is the same as the one for [FuzzBench](https://github.com/google/fuzzbench).
