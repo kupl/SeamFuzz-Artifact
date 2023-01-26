@@ -45,12 +45,12 @@ done
 
 CONFIG_CMD="-t $TRIALS -s $TIME -e $EXP_PATH -r $REPORT"
 
-./make_local_config.sh $TRIAL $TIME $EXP_PATH $REPORT
+./make_local_config.sh $TRIALS $TIME $EXP_PATH $REPORT
 
 cp ./local-experiment-config.yaml $FUZZBENCH_PATH/
 
 # running fuzzbench with all benchmarks used in the main evaluation.
-PYTHONPATH=$FUZZBENCH_PATH/ python3.9 $FUZZBENCH_PATH/experiment/run_experiment.py -cb 2 -a -c $FUZZBENCH_PATH/local-experiment-config.yaml -b arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer infotocap libarchive_libarchive_fuzzer zstd_stream_decompress libpng_test libxml2_magma objdump openssl_x509 magma_php podofo poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz -f aflpp seamfuzz aflppmopt -e $EXP_NAME
+PYTHONPATH=$FUZZBENCH_PATH/ python3 $FUZZBENCH_PATH/experiment/run_experiment.py -cb 2 -a -c $FUZZBENCH_PATH/local-experiment-config.yaml -b arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer infotocap libarchive_libarchive_fuzzer zstd_stream_decompress libpng_test libxml2_magma objdump openssl_x509 magma_php podofo poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz -f aflpp seamfuzz aflppmopt -e $EXP_NAME
 
 
 # Read the report data and print the results of the evaluation
