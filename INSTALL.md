@@ -26,12 +26,26 @@ Otherwise, FuzzBench may not properly work on some benchmark programs we provide
 
 
 ### From Source
-Following command will construct the experimental environments.  
+As we mentioned in [REQUIREMENTS.md](./REQUIREMENTS.md), the FuzzBench we provided in this repository requires **python-3.9**.
+
+Following command will install the prerequisites for running fuzzbench.  
 
 ```
-cd ./fuzzbench && ./setup.sh
+sudo apt-get install python3-venv python3-pip docker  python3.9-venv python3.9-dev docker docker-compose
 ```
 
+After installing docker, users are recommended to make 
+
+```
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+sudo service docker restart
+```
+
+The command below will setup FuzzBench framework on a local machine.
+```
+cd ./fuzzbench & make
+```
 
 ### VM(VirtualMachine) 
 We also provide a VM image file which contain all contents to evaluate the experiments.
