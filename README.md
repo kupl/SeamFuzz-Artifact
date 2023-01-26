@@ -21,7 +21,7 @@ You can follow the instructions written in `Dockerfile` and `build.sh` in each b
 
 # How to use
 We provide an example instruction which conducts a short experiment running **AFL++**, **AFL++_MOpt**, and **SeamFuzz** on benchmark programs ... with trials during 3 hours. 
-Note that conducting experiments on all benchmarks (Table 2 in our paper) takes a total **20,160 hours** (24 hours * 14 benchmarks * 20 trials * 3 fuzzers), and it also requires lots of CPU powers and memories which are not practically available.
+Note that conducting experiments on all benchmarks (Table 2 in our paper) takes at least **20,160 hours** (24 hours * 14 benchmarks * 20 trials * 3 fuzzers + N hours for building benchmarks/fuzzers), and it also requires lots of CPU powers and memories which are not practically available.
 Yet, we provide running script files which reproduce all result tables(Table 2, 3, 4, and 5) in our paper.
 
 
