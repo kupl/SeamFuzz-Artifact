@@ -21,7 +21,7 @@ fuzzbench
 ```
 If the users want to evaluate our fuzzers on the FuzzBench framework from original git, 
 please modify the files above.
-Otherwise, FuzzBench may not evaluate the benchmark programs.
+Otherwise, FuzzBench may not properly work on some benchmark programs we provide.
 
 
 
