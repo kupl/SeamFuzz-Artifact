@@ -4,7 +4,7 @@ Greybox Fuzzing".
 Our tool, [SeamFuzz](https://github.com/kupl/SeamFuzz-public), is a grey-box mutation-based fuzzer built on [AFL++](https://github.com/AFLplusplus/AFLplusplus)-v3.15++.
 
 # Requirements
-Please refer [REQUIREMENTS.md](https://github.com/kupl/SeamFuzz-Artifact/REQUIREMENTS.md) for the operating system and hardware requirements.
+Please refer [REQUIREMENTS.md](./REQUIREMENTS.md) for the operating system and hardware requirements.
 
 # Setup
 All experiments in our paper was done on [FuzzBench](https://github.com/google/fuzzbench) framework,
