@@ -8,5 +8,5 @@ to run a single experiment(20 trials on a single benchmark program with a single
 The remaining hard disk space should be more than **300GB**.  
 
 ### Software Requirements
-To properly evaluate FuzzBench framework provided by ours, we recommend to install **python-3.9**. 
-We used FuzzBench framework with the commit "f1c12914a4ca74073131c5744dfc6b33c33579be", which used **python-3.9**.
+To properly evaluate FuzzBench framework provided by ours, we recommend to install **python-3.8** or **python-3.9** . 
+We used FuzzBench framework with the commit "f1c12914a4ca74073131c5744dfc6b33c33579be", which assumed the version of python as 3.9.
