@@ -1,4 +1,5 @@
 # Setup
+## Building SeamFuzz for Fuzzbench
 All experiments in our paper was done on [FuzzBench](https://github.com/google/fuzzbench) framework,
 and therefore, the setup environments for our artifact is the same as the one for [FuzzBench](https://github.com/google/fuzzbench).
 Please refer to the following [link](https://google.github.io/fuzzbench/) to establish the experimental environments.
@@ -23,10 +24,15 @@ If the users want to evaluate our fuzzers on the FuzzBench framework from origin
 please modify the files above.
 Otherwise, FuzzBench may not properly work on some benchmark programs we provide.
 
+### Using VM(VirtualMachine) 
+We also provide a VM image file which contain all contents to evaluate the experiments.
+The VM image is built on [VirtualBox 7.0](https://www.virtualbox.org).
+You can donwload the VM image from the following link.
 
+The user password is set to "1234"
 
 ### From Source
-As we mentioned in [REQUIREMENTS.md](./REQUIREMENTS.md), the FuzzBench we provided in this repository requires **python-3.9**.
+As we mentioned in [REQUIREMENTS.md](./REQUIREMENTS.md), the FuzzBench we provided in this repository recommend to use **python-3.9**.
 
 Following command will install the prerequisites for running fuzzbench.  
 
@@ -47,15 +53,8 @@ The command below will setup FuzzBench framework on a local machine.
 cd ./fuzzbench & make
 ```
 
-### VM(VirtualMachine) 
-We also provide a VM image file which contain all contents to evaluate the experiments.
-The VM image is built on [VirtualBox 7.0](https://www.virtualbox.org).
-You can donwload the VM image from the following link.
 
-The user password is set to "1234"
-
-
-### Building SeamFuzz wihtout FuzzBench
+## Building SeamFuzz without FuzzBench
 The source code for SeamFuzz is on ./fuzzbench/fuzzers/seamfuzz/afl. 
 As SeamFuzz is built on AFL++, the installation process for SeamFuzz is the same as AFL++.
 Please follow the instructions in [AFL++](https://github.com/AFLplusplus/AFLplusplus) to build SeamFuzz on a local machine.
