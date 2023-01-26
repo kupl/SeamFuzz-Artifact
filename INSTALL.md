@@ -29,7 +29,7 @@ We also provide a VM image file which contain all contents to evaluate the exper
 The VM image is built on [VirtualBox 7.0](https://www.virtualbox.org).
 You can donwload the VM image from the following link.
 
-The user password is set to "1234"
+The sudo user password is set to "1234"
 
 ### From Source
 As we mentioned in [REQUIREMENTS.md](./REQUIREMENTS.md), the FuzzBench we provided in this repository recommend to use **python-3.9**.
