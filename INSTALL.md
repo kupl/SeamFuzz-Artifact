@@ -57,4 +57,5 @@ The user password is set to "1234"
 
 ### Building SeamFuzz wihtout FuzzBench
 The source code for SeamFuzz is on ./fuzzbench/fuzzers/seamfuzz/afl. 
-By following the instructions in [AFL++](https://github.com/AFLplusplus/AFLplusplus), build SeamFuzz on a local machine.
+As SeamFuzz is built on AFL++, the installation process for SeamFuzz is the same as AFL++.
+Please follow the instructions in [AFL++](https://github.com/AFLplusplus/AFLplusplus) to build SeamFuzz on a local machine.
