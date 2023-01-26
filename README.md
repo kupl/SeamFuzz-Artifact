@@ -9,6 +9,9 @@ Please refer to [REQUIREMENTS.md](./REQUIREMENTS.md) for the operating system an
 # Setup
 Please refer to [INSTALL.md](./INSTALL.md) for installation.
 
+# Structure
+Please refer to [STRUCTURE.md](./STRUCTURE.md) for SeamFuzz structure description.
+
 # How to use
 Once the setup is properly prepared (or using VM), enter the following command to reproduce the main evlauation results in our paper, which is Table 2 in Section IV.
 
