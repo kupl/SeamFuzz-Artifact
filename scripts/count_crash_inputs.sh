@@ -4,14 +4,16 @@
 # this script will run the fuzzbench framework with the given local experiment configurations, and produce the results of the main evaluation. 
 # [EXP_PATH]: the path for storing the running data of FuzzBench. The default path is the working directory/data/
 # [EXP_PATH]: the name of the experiments which are stored in [EXP_PATH]. The default name is maineval
-# ./count_crash_inputs.sh [EXP_PATH] [EXP_NAME]
+# [RESULT] : the path to "result" directory which stores all results of the experiments.
+# ./count_crash_inputs.sh [EXP_PATH] [EXP_NAME] [RESULT]
 
 SHELL_PATH=`pwd -P`
 
 EXP_PATH=${1}
 EXP_NAME=${2}
+RESULTS=${3}
 
-crash_dir=$SHELL_PATH/results/$EXP_NAME
+crash_dir=$RESULTS/$EXP_NAME
 crash_file=$crash_dir/crashes.csv
 
 if [ ! -d $crash_dir ]; then

@@ -1,11 +1,11 @@
 #!/bin/bash -ex
 # a running script for SeamFuzz artifact accpeted in ICSE'23
 # As all experiments were evaluated on FuzzBench framework, 
-# this python file will generate the table for the main evaluation. 
+# this python file will generate the table. 
 # TIME: the seconds for the running experiments. The default value is 86400, which is 24 hours
 # [REPORT]: the path for storing the report of FuzzBench. must be given as an absolute path. The default path is the working directory/report/
 # [EXP_NAME]: the name of the experiments which will be stored in [EXP_PATH]. The default name is maineval
-# python3.9 generate_table.py [REPORT] [EXP_PATH] [TIME] [TRIALS] [EXP_NAME] 
+# python3.9 generate_table.py [REPORT] [EXP_PATH] [TIME] [TRIALS] [EXP_NAME] [RESULTS]
 
 import pandas as pd
 import sys
@@ -18,9 +18,7 @@ exp_path = sys.argv[2]
 given_time = sys.argv[3]
 given_trials = sys.argv[4]
 exp_name = sys.argv[5]
-
-result_base_path="./results/"
-result_path = result_base_path + exp_name
+result_path = sys.argv[6] + exp_name
 
 data = pd.read_csv(report_path + "/experimental/" + exp_name + "/data.csv.gz")
 df = pd.DataFrame(data, columns=data.keys())
@@ -104,7 +102,6 @@ v = venn3(crash_elements, tuple(fuzzer_elements))
 
 plt.title("Unique Vulnerabilities")
 plt.savefig(result_path + "/unique_vul_venn_diagram.png")
-
 
 for fuzzer in fuzzers:
     if ("mopt" in fuzzer) or ("seam" in fuzzer):
