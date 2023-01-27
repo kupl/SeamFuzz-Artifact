@@ -15,9 +15,14 @@ fuzzbench
 |       └── run_coverage.py : "do_coverage_run" function is modified to properly evaluate some benchmark programs
 └── fuzzers
 |   └── afl
-|   └── fuzzer.py         : "run_afl_fuzz" function is modified to properly evaluate some benchmark programs
-|   └── aflpp : "build.Dockerfile" is modified to make the version of "AFL++" be the same as the one of SeamFuzz
-|   └── aflppmopt : "build.Dockerfile" is modified to make the version of "AFL++" be the same as the one of SeamFuzz
+|   |   └── fuzzer.py         : "run_afl_fuzz" function is modified to properly evaluate some benchmark programs
+|   └── aflpp : 
+|   |   └── build.Dockerfile  : to make the version of "AFL++" be the same as the one of SeamFuzz
+|   |   └── fuzzer.py         : "run_afl_fuzz" function is modified to properly evaluate some benchmark programs
+|   └── aflppmopt : 
+|   |   └── build.Dockerfile  : to make the version of "AFL++" be the same as the one of SeamFuzz
+|   |   └── fuzzer.py         : "L" option is set to 1 to evaluate MOpt. It is the default option described in [MOpt](https://github.com/puppet-meteor/MOpt-AFL)
+|   |  
 ...
 ```
 If the users want to evaluate our fuzzers on the FuzzBench framework from original git, 
