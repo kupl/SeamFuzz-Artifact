@@ -42,7 +42,10 @@ Note that conducting experiments for all benchmarks (Table 2 in our paper) takes
 Once the setup instruction is successfully done(or using our VM image), you can perform the small experiments with the following command:
 
 ```
-/SeamFuzz-Artifact$ ./scripts/main_eval.sh ./fuzzbench/ libxml2-v2.9.2 2 10800 test
+/SeamFuzz-Artifact& cat ./scripts/bench.txt
+libxml2-v2.9.2
+
+/SeamFuzz-Artifact$ ./scripts/main_eval.sh ./fuzzbench/ ./scripts/bench.txt 2 10800 test
 ```
 
 Then, you will see the fuzzing progress, which is from FuzzBench, as follows:
