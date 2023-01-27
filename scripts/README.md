@@ -1,5 +1,6 @@
 # Scripts
 This directory contains script files for evaluating SeamFuzz and other fuzzers on a local FuzzBench framework. 
+Each script file contains its usage example inside. 
 
 * bench.txt                 : a list of benchmark programs for evaluation
 * fuzzer.txt                : a list of fuzzers for evaluation
