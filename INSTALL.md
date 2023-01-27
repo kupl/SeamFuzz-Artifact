@@ -3,9 +3,11 @@
 All experiments in our paper was done on [FuzzBench](https://github.com/google/fuzzbench) framework,
 and therefore, the setup environments for our artifact is the same as the one for [FuzzBench](https://github.com/google/fuzzbench).
 Please refer to the following [link](https://google.github.io/fuzzbench/) to establish the experimental environments.
+As FuzzBench requires `docker`, please refer to [Docker](https://docs.docker.com/engine/install/linux-postinstall) for Docker installation.
+
 You can also follow the instructions below to construct/evaluate SeamFuzz on FuzzBench.
 
-We modified some parts of FuzzBench to evaluate some benchmark programs (objdump, infotocap, podofopdfinfo, magma_libxml2_xmllint) as follows:
+We modified some parts of FuzzBench to evaluate some benchmark programs (objdump, infotocap, podofopdfinfo) as follows:
 ```
 fuzzbench
 └── experiment
@@ -13,44 +15,28 @@ fuzzbench
 |       └── run_coverage.py : "do_coverage_run" function is modified to properly evaluate some benchmark programs
 └── fuzzers
 |   └── afl
-|   └── fuzzer.py         : "run_afl_fuzz" function is modified to properly evaluate some benchmark programs
-|   └── aflpp : "build.Dockerfile" is modified to make the version of "AFL++" be the same as the one of SeamFuzz
-|   └── aflppmopt : "build.Dockerfile" is modified to make the version of "AFL++" be the same as the one of SeamFuzz
+|   |   └── fuzzer.py         : "run_afl_fuzz" function is modified to properly evaluate some benchmark programs
+|   └── aflpp : 
+|   |   └── build.Dockerfile  : to make the version of "AFL++" be the same as the one of SeamFuzz
+|   |   └── fuzzer.py         : "run_afl_fuzz" function is modified to properly evaluate some benchmark programs
+|   └── aflppmopt : 
+|   |   └── build.Dockerfile  : to make the version of "AFL++" be the same as the one of SeamFuzz
+|   |   └── fuzzer.py         : "L" option is set to 1 to evaluate MOpt. It is the default option described in [MOpt](https://github.com/puppet-meteor/MOpt-AFL)
+|   |  
 ...
 ```
 If the users want to evaluate our fuzzers on the FuzzBench framework from original git, 
 please modify the files above.
 Otherwise, FuzzBench may not properly work on some benchmark programs we provide.
 
+For more detail, please refer to [benchmarks](./benchmarks)
+
 ### Using VM(VirtualMachine) 
 We also provide a VM image file which contain all contents to evaluate the experiments.
 The VM image is built on [VirtualBox 7.0](https://www.virtualbox.org).
-You can donwload the VM image from the following link.
-
+This VM is set to use 48GB memories and 8 CPU cores with 1.5 TB disk.
 The sudo user password is set to "1234"
-
-### From Source
-As we mentioned in [REQUIREMENTS.md](./REQUIREMENTS.md), the FuzzBench we provided in this repository recommend to use **python-3.9**.
-
-Following command will install the prerequisites for running fuzzbench.  
-
-```
-sudo apt-get install python3-venv python3-pip docker  python3.9-venv python3.9-dev docker docker-compose
-```
-
-After installing docker, users are recommended to make 
-
-```
-sudo groupadd docker
-sudo gpasswd -a $USER docker
-sudo service docker restart
-```
-
-The command below will setup FuzzBench framework on a local machine.
-```
-cd ./fuzzbench & make
-```
-
+You can donwload the VM image from the following link.
 
 ## Building SeamFuzz without FuzzBench
 The source code for SeamFuzz is on ./fuzzbench/fuzzers/seamfuzz/afl. 
