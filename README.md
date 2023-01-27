@@ -71,7 +71,7 @@ libxml2-v2.9.2   |  3986        0     | 3274        0       -17.9%          0%  
 ```
 You can also check the result file in `./results/test/result_table.txt`
 
-* Note that the result table above was produced by using our VM image.
+* Note that the instruction above was performed in our VM image.
 
 
 ### Performing full experiments.
