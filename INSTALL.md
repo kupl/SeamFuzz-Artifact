@@ -32,16 +32,9 @@ Otherwise, FuzzBench may not properly work on some benchmark programs we provide
 
 For more detail, please refer to [benchmarks](./benchmarks).
 
-### Using FuzzBench provided by ours
+### Using old-version FuzzBench (the old-version - commit: f1c1291)
 
 Users can set up all requirements and pull the dispatcher-image (the old version) by following the command below:
-```
-/SeamFuzz-Artifact$ ./scripts/setup_script.sh ./fuzzbench ./
-```
-
-### Using FuzzBench(old-version) not provided by ours
-
-If users do not copy the fuzzbench directory from this repository, but want to use the original FuzzBench with the commit version we used (f1c1291), 
 please follow the command below.
 ```
 # install packages and docker
