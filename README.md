@@ -224,7 +224,7 @@ You may want to run FuzzBench with your own flavors in usage.
  $ -b [BENCHMARKS] -f [FUZZERS] -e [EXP_NAME]
  
  
--cb [N]: cuncurrent building options. Higher the value, faster the building process. 
+-cb [N]: cuncurrent building options. Higher the value, faster the building process (may output EOF error if the value is too high for Hardware)
 [BENCHMARKS] : give the full name of the the programs which will be used for experiments. The benchmark programs are in ./fuzzbench/benchmarks directory. ex) "-b arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer"
 [FUZZERS] : give the full name of the fuzzers which will be used for experiments. The fuzzers are in ./fuzzbench/fuzzers directory. ex) "-f aflpp aflppmopt seamfuzz"
 ```
