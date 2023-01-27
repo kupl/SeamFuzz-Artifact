@@ -94,11 +94,11 @@ objdump          |   709        0     |   590       0       -16.8%          0%  
 ...
 ```
 
-* Note that the instruction above was performed in our VM image.
+* Note that the instructions above were performed on our VM image.
 
 
 ### Performing full experiments.
-By using `run_fuzzbench.sh` script file, users can do all experiments in our paper.
+By running `run_fuzzbench.sh` script file, users can do all experiments in our paper.
 
 ```
 ./run_fuzzbench.sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME] -F [FUZZBENCH_PATH] -b [BENCHMARK_PATH] -f [FUZZER_PATH]
@@ -114,7 +114,6 @@ By using `run_fuzzbench.sh` script file, users can do all experiments in our pap
 
 ```
 
-
 The command below performs the main experiments (Table 2 in our paper).
 ```
 /SeamFuzz-Artifact& echo "arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer infotocap libarchive_libarchive_fuzzer zstd_stream_decompress libpng libxml2-v2.9.2 objdump openssl_x509 php_php-fuzz-parser podofo poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz" > ./scripts/bench.txt
@@ -122,7 +121,7 @@ The command below performs the main experiments (Table 2 in our paper).
 /SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table2
 ```
 
-* Note that 
+* Note that running the command above may not work properly due to memory/CPU issues. In this case, please reduce the number of trials (-t options) or evaluate some parts of the benchmarks (reducing the number of benchmarks evaluating at one time).
 
 
 ## With Reproducing-Script Files
