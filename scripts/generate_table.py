@@ -128,6 +128,7 @@ for fuzzer in fuzzers:
 
 
 # print the result table...
+f.write("Experiment  : " + exp_name + "\n")
 f.write("Total Time  : " + given_time + " seconds\n")
 f.write("Total trials: " + given_trials + " trials\n")
 f.write("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
