@@ -41,8 +41,8 @@ Note that conducting experiments for all benchmarks (Table 2 in our paper) takes
 Once the setup instruction is successfully done(or using our VM image), you can perform the small experiments with the following command:
 
 ```
-/SeamFuzz-Artifact& echo "libxml2-v2.9.2" > ./scripts/bench.txt
-/SeamFuzz-Artifact& echo "aflpp aflppmopt seamfuzz" > ./scripts/fuzzer.txt
+/SeamFuzz-Artifact$ echo "libxml2-v2.9.2" > ./scripts/bench.txt
+/SeamFuzz-Artifact$ echo "aflpp aflppmopt seamfuzz" > ./scripts/fuzzer.txt
 /SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 2 -s 10800 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e libxml2test
 ```
 
@@ -78,7 +78,7 @@ You can also check the result file in `./results/test/result_table.txt`
 You can evaluate other benchmark (e.g., objdump) with the similar commands/script files as below:
 
 ```
-/SeamFuzz-Artifact& echo "objdump" > ./scripts/bench.txt
+/SeamFuzz-Artifact$ echo "objdump" > ./scripts/bench.txt
 /SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 2 -s 10800 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e objdumptest
 ...
 
@@ -114,6 +114,7 @@ By running `run_fuzzbench.sh` script file, users can do all experiments in our p
 
 ```
 
+The commands below performs experiments in our paper.
 
 </div>
 </details>
@@ -122,12 +123,16 @@ By running `run_fuzzbench.sh` script file, users can do all experiments in our p
 <div markdown="1">
 
 ```bash
-/SeamFuzz-Artifact& echo "arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer infotocap libarchive_libarchive_fuzzer zstd_stream_decompress libpng libxml2-v2.9.2 objdump openssl_x509 php_php-fuzz-parser podofo poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz" > ./scripts/bench.txt
-/SeamFuzz-Artifact& echo "aflpp aflppmopt seamfuzz" > ./scripts/fuzzer.txt
-/SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table2
+ # Set the benchmark programs to evaluate 
+ $ echo "arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer infotocap libarchive_libarchive_fuzzer zstd_stream_decompress libpng libxml2-v2.9.2 objdump openssl_x509 php_php-fuzz-parser podofo poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz" > ./scripts/bench.txt
+
+ # Set fuzzers to evaluate
+ $ echo "aflpp aflppmopt seamfuzz" > ./scripts/fuzzer.txt
+
+ # Running scripts with 20 trials for 24 hours.
+ $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table2
 ```
 
-The command below performs the main experiments (Table 2 in our paper).
 
 
 * Note that running the command above may not work properly due to memory/CPU issues. In this case, please reduce the number of trials (-t options) or evaluate some parts of the benchmarks (reducing the number of benchmarks evaluating at one time).
