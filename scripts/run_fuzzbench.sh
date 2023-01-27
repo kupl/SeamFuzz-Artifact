@@ -23,7 +23,7 @@ FUZZER=""
 
 RESULTS="$SHELL_PATH/results"
 
-TRIALS=5
+TRIALS=20
 TIME=86400
 EXP_PATH="$SHELL_PATH/data/"
 REPORT="$SHELL_PATH/report/"
@@ -61,9 +61,7 @@ while getopts "t:s:p:r:e:F:b:f:" opt; do
     esac
 done
 
-./make_local_config.sh $TRIALS $TIME $EXP_PATH $REPORT $FUZZBENCH_PATH
-
-cp $SHELL_PATH/local-experiment-config.yaml $FUZZBENCH_PATH/ 
+$SHELL_PATH/scripts/make_local_config.sh $TRIALS $TIME $EXP_PATH $REPORT $FUZZBENCH_PATH
 
 while read line || [ -n "$line" ] ; do
     BENCH="$BENCH $line"
@@ -79,15 +77,15 @@ source $FUZZBENCH_PATH/.venv/bin/activate
 # running fuzzbench with all benchmarks used in the main evaluation.
 PYTHONPATH=$FUZZBENCH_PATH/ python3 $FUZZBENCH_PATH/experiment/run_experiment.py -cb 1 -a -c $FUZZBENCH_PATH/local-experiment-config.yaml -b $BENCH -f $FUZZER -e $EXP_NAME
 
-deactivate
-
 # Read the report data and print the results of the evaluation.
 # run count_crash_inputs script to extract the results from the raw data produced by each fuzzers. (using the results-fuzzer_stats- of AFL++)
 # It is to calculate the number of generated crash inputs by each fuzzer for all benchmarks
-./count_crash_inputs.sh $EXP_PATH $EXP_NAME $RESULTS
+$SHELL_PATH/scripts/count_crash_inputs.sh $EXP_PATH $EXP_NAME $RESULTS
 
 # run generate_table.py file to generate result tables from the experiments
-python3 generate_table.py $REPORT $EXP_PATH $TIME $TRIALS $EXP_NAME $RESULTS
+python3 $SHELL_PATH/scripts/generate_table.py $REPORT $EXP_PATH $TIME $TRIALS $EXP_NAME $RESULTS
+
+deactivate
 
 # print out the result table.
 cat $RESULTS/$EXP_NAME/result_table
