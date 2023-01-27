@@ -44,8 +44,17 @@ This script will install all requirements to evaluate FuzzBench we actually used
 If users do not copy the fuzzbench directory from this repository, but want to use the original FuzzBench with the commit version we used (f1c1291), 
 please follow the command below.
 ```
+# install packages and docker
+/workspace& sudo apt-get install -y python3-venv python3-dev build-essential libpq-dev python3-pip docker-compose
+/workspace& sudo groupadd docker
+/workspace& sudo gpasswd -a $USER docker
+/workspace& newgrp docker
+
+# git clone fuzzbench and use the old version(f1c1291)
 /workspace$ git clone https://github.com/google/fuzzbench
 /workspace$ git -C ./fuzzbench checkout f1c1291
+
+# apply patches and make venv setup with installing dispatcher docker image
 /workspace$ [SEAMFUZZ-ARTIFACT]/scripts/apply_patch.sh ./workspace/fuzzbench
 /workspace$ [SEAMFUZZ-ARTIFACT]/scripts/setup_script.sh ./workspace/fuzzbench
 ```
