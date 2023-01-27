@@ -74,6 +74,25 @@ libxml2-v2.9.2   |  3986        0     | 3274        0       -17.9%          0%  
 ```
 You can also check the result file in `./results/test/result_table.txt`
 
+You can evaluate other benchmark (e.g., objdump) with the similar commands/script files as below:
+
+```
+/SeamFuzz-Artifact& echo "objdump" > ./scripts/bench.txt
+/SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 2 -s 10800 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e objdumptest
+...
+
+Experiment  : objdumptest
+Total Time  : 10800 seconds
+Total Trials: 2 trials
+----------------------------------------------------------------------------------------------------------------------------
+    program      |        AFL++       |                AFL++_MOpt               |                   SeamFuzz               |
+                 |  Cover    Crashes  |  Cover    Crashes    R_Cov    R_Crashes |  Cover    Crashes    R_Cov    R_Crashes  |
+----------------------------------------------------------------------------------------------------------------------------
+objdump          |   709        0     |   590       0       -16.8%          0%  |   732       0        3.2%            0%  |    
+----------------------------------------------------------------------------------------------------------------------------
+...
+```
+
 * Note that the instruction above was performed in our VM image.
 
 
