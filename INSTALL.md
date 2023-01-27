@@ -39,6 +39,8 @@ Users can set up all requirements and pull the dispatcher-image (the old version
 /SeamFuzz-Artifact$ ./scripts/setup_script.sh [FUZZBENCH] 
 ```
 
+This script will install all requirements to evaluate FuzzBench we actually used. 
+
 If users do not copy the fuzzbench directory from this repository, but want to use the original FuzzBench with the commit version we used (f1c1291), 
 please follow the command below.
 ```
