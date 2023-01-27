@@ -40,6 +40,12 @@ Users can set up all requirements and pull the dispatcher-image (the old version
 /SeamFuzz-Artifact$ ./scripts/setup_script.sh [FUZZBENCH] 
 ```
 
+If users do not copy the fuzzbench directory from this repository, but the original FuzzBench with the commit version we used, 
+they also need to follow the command below to apply patches on some source codes described above.
+```
+/SeamFuzz-Artifact$ ./scripts/apply_patch.sh [FUZZBENCH]
+```
+
 
 ### Using VM(VirtualMachine) 
 We also provide a VM image file which contain all contents to evaluate the experiments.
