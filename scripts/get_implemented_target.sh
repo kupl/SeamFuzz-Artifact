@@ -34,4 +34,6 @@ CONTAINER=`docker create --name='get_container' $CHECK`
 
 mkdir -p $IMPLEMENT_PATH
 
-docker cp get_container:/out/ ./implement/$BENCHMARK
+docker cp get_container:/out/ $IMPLEMENT_PATH/$BENCHMARK
+
+echo $DELETE
