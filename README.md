@@ -35,9 +35,42 @@ Note that [BENCHMARK] with proper Dockerfile and build scripts and [FUZZER] must
 
 
 # How to use
-We provide an example instruction which conducts a short experiment running **AFL++**, **AFL++_MOpt**, and **SeamFuzz** on benchmark programs ... with trials during 3 hours. 
+### Performing small experiments
+We provide an example instruction which conducts a short experiment running **AFL++**, **AFL++_MOpt**, and **SeamFuzz** on benchmark programs ... with 2 trials during 3 hours. 
 Note that conducting experiments for all benchmarks (Table 2 in our paper) takes at least **20,160 hours** (24 hours * 14 benchmarks * 20 trials * 3 fuzzers + N hours for building benchmarks/fuzzers) on a single core.
-Yet, we provide running script files which reproduce all result tables(Table 2, 3, 4, and 5) in our paper.
+
+You can perform the small experiments we provide with the following command:
+
+```
+/SeamFuzz-Artifact$ ./scripts/small_experiment.sh [FUZZBENCH] [EXP_NAME]
+```
+
+Then, you will see the fuzzing progress, which is from FuzzBench, as follows:
+
+```
+...
+INFO:root:Measuring all trials.
+INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflpp', 'benchmark': '', 'trial_id':19', 'cycle':9}
+INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflppmopt', 'benchmark': '', 'trial_id':20', 'cycle':9}
+INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'seamfuzz', 'benchmark': '', 'trial_id':22', 'cycle':9}
+...
+```
+
+When all process termintes, you can see the following output:
+```
+----------------------------------------------------------------------------------------------------------------------------
+    program      |        AFL++       |                AFL++_MOpt               |                   SeamFuzz               |
+                 |  Cover    Crashes  |  Cover    Crashes    R_Cov    R_Crashes |  Cover    Crashes    R_Cov    R_Crashes  |
+----------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------
+...
+```
+You can also check the result file in `./results/[EXP_NAME]/result_table.txt`
+
+
+### Performing full experiments.
+We also provide running script files which reproduce all result tables(Table 2, 3, 4, and 5) in our paper.
 
 
 Once the setup is properly prepared (or using VM), enter the following command to reproduce the main evlauation results in our paper, which is Table 2 in Section IV.
@@ -103,10 +136,10 @@ You may want to run FuzzBench with your own flavors in usage.
 
 ```
 ./make_local_config.sh $TRIALS $TIME $EXP_PATH $REPORT
-cp ./local-experiment-config.yaml ./fuzzbench/
+cp ./local-experiment-config.yaml [FUZZBENCH]
 
-PYTHONPATH=./fuzzbench/ \
-python3.9 ./fuzzbench/experiment/run_experiment.py -cb [N] -a -c ./fuzzbench/local-experiment-config.yaml \
+PYTHONPATH=[FUZZBENCH] \
+python3 [FUZZBENCH]/experiment/run_experiment.py -cb [N] -a -c [FUZZBENCH]/local-experiment-config.yaml \
 -b [BENCHMARKS] -f [FUZZERS] -e [EXP_NAME]
 ```
 
