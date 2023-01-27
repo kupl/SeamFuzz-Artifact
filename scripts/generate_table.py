@@ -5,18 +5,22 @@
 # TIME: the seconds for the running experiments. The default value is 86400, which is 24 hours
 # [REPORT]: the path for storing the report of FuzzBench. must be given as an absolute path. The default path is the working directory/report/
 # [EXP_NAME]: the name of the experiments which will be stored in [EXP_PATH]. The default name is maineval
-# python3.9 generate_table.py [REPORT] [TIME] [EXP_NAME] 
+# python3.9 generate_table.py [REPORT] [EXP_PATH] [TIME] [TRIALS] [EXP_NAME] 
 
 import pandas as pd
 import sys
 from matplotlib import pyplot as plt
 from matplotlib_venn import venn3
-
-result_path="./results/"
+import os
 
 report_path = sys.argv[1]
-given_time = sys.argv[2]
-exp_name = sys.argv[3]
+exp_path = sys.argv[2]
+given_time = sys.argv[3]
+given_trials = sys.argv[4]
+exp_name = sys.argv[5]
+
+result_base_path="./results/"
+result_path = result_base_path + exp_name
 
 data = pd.read_csv(report_path + "/experimental/" + exp_name + "/data.csv.gz")
 df = pd.DataFrame(data, columns=data.keys())
@@ -28,7 +32,9 @@ deduplicated_data = grouped_by_time.drop_duplicates(['trial_id'])
 fuzzers = df['fuzzer'].unique()
 benchmarks = df['benchmark'].unique()
 
-f = open(result_path + "coverage.csv", 'w')
+os.system("./scripts/count_crash_inputs.sh " + exp_path + " " + exp_name)
+
+f = open(result_path + "/coverage.csv", 'w')
 
 f.write("experiment, fuzzer, benchmark, average_coverage\n")
 
@@ -56,8 +62,6 @@ for fuzzer in fuzzers:
 f.close()
 
 
-
-
 crash_input_data = pd.read_csv(result_path + "/crashes.csv")
 crash_input_df = pd.DataFrame(crash_input_data, columns=crash_input_data.keys())
 
@@ -73,7 +77,7 @@ for fuzzer in fuzzers:
     for b in benchmarks:
         mean_crash_dict[fuzzer][b] = int(input_grouped.mean()[b])
 
-f = open(result_path + "result_table", 'w')
+f = open(result_path + "/result_table.txt", 'w')
 
 
 ratio_crash_dict = dict()
@@ -83,17 +87,23 @@ ratio_coverage_dict = dict()
 # Generate Venn-diagram for the unique vulnerabilities found by each fuzzer.
 
 tmp_crash_dict = dict()
+crash_elements = []
+fuzzer_elements = []
 for fuzzer in fuzzers:
     tmp_set = set()
     for b in benchmarks:
         tmp_set |= unique_crashes_dict[fuzzer][b]
 
     tmp_crash_dict[fuzzer] = tmp_set
+    crash_elements.append(tmp_set)
+    fuzzer_elements.append(fuzzer)
 
-v=venn3([tmp_crash_dict['aflpp'], tmp_crash_dict['aflppmopt'], tmp_crash_dict['seamffuzz']], ('aflpp', 'aflppmopt', 'seamfuzz'))
+
+v = venn3(crash_elements, tuple(fuzzer_elements))
+#v=venn3([tmp_crash_dict['aflpp'], tmp_crash_dict['aflppmopt'], tmp_crash_dict['seam']], ('aflpp', 'aflppmopt', 'seam'))
 
 plt.title("Unique Vulnerabilities")
-plt.savefig(result_path + "unique_vul_venn_diagram.png")
+plt.savefig(result_path + "/unique_vul_venn_diagram.png")
 
 
 for fuzzer in fuzzers:
@@ -121,7 +131,8 @@ for fuzzer in fuzzers:
 
 
 # print the result table...
-
+f.write("Total Time  : " + given_time + " seconds\n")
+f.write("Total trials: " + given_trials + " trials\n")
 f.write("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
 f.write(f'{"program":^30s}|' + f'{"AFL++":^30s}|' + f'{"AFL++_MOpt":^60s}|' + f'{"SeamFuzz":^60s}|' + "\n")
 f.write(f'{"":^30s}|' + f'{"Cover":^15s}' + f'{"Crashes":^15s}|' + f'{"Cover":^15s}' + f'{"Crashes":^15s}' + f'{"R_Cov":^15s}' + f'{"R_Crashes":^15s}|' + f'{"Cover":^15s}' + f'{"Crashes":^15s}' + f'{"R_Cov":^15s}' + f'{"R_Crashes":^15s}|' + "\n")
@@ -131,7 +142,7 @@ for b in benchmarks:
     f.write(f'{b:30s}|')
     
     for fuzzer in fuzzers:
-        if ("mopt" in fuzzer) or ("seamfuzz" in fuzzer):
+        if ("mopt" in fuzzer) or ("seam" in fuzzer):
             f.write(f'{mean_coverage_dict[fuzzer][b]:>15d}' + f'{mean_crash_dict[fuzzer][b]:>15d}' + f'{ratio_coverage_dict[fuzzer][b]:>15s}' + f'{ratio_crash_dict[fuzzer][b]:>15s}|')
         else:
             f.write(f'{mean_coverage_dict[fuzzer][b]:>15d}' + f'{mean_crash_dict[fuzzer][b]:>15d}|')

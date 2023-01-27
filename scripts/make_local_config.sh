@@ -12,15 +12,15 @@
 SHELL_PATH=`pwd -P`
 CONFIG="local-experiment-config.yaml"
 
-TRIALS=20
-TIME=86400
-EXP_PATH="$SHELL_PATH/data/"
-REPORT="$SHELL_PATH/report/"
+TRIALS=${1}
+TIME=${2}
+EXP_PATH=${3}
+REPORT=${4}
 
-echo "trials: $TRIALS" > $CONFIG
-echo "max_total_time: $TIME" >> $CONFIG
-echo "docker_registry: gcr.io/fuzzbench" >> $CONFIG
-echo "experiment_filestore: $EXP_PATH" >> $CONFIG
-echo "report_filestore: $REPORT" >> $CONFIG
-echo "local_experiment: true" >> $CONFIG
-echo "git_hash: \"git-hash\"" >> $CONFIG
+echo "trials: $TRIALS" > $SHELL_PATH/$CONFIG
+echo "max_total_time: $TIME" >> $SHELL_PATH/$CONFIG
+echo "docker_registry: gcr.io/fuzzbench" >> $SHELL_PATH/$CONFIG
+echo "experiment_filestore: $EXP_PATH" >> $SHELL_PATH/$CONFIG
+echo "report_filestore: $REPORT" >> $SHELL_PATH/$CONFIG
+echo "local_experiment: true" >> $SHELL_PATH/$CONFIG
+#echo "git_hash: \"git-hash\"" >> $SHELL_PATH/$CONFIG
