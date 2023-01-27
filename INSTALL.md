@@ -3,6 +3,8 @@
 All experiments in our paper was done on [FuzzBench](https://github.com/google/fuzzbench) framework,
 and therefore, the setup environments for our artifact is the same as the one for [FuzzBench](https://github.com/google/fuzzbench).
 Please refer to the following [link](https://google.github.io/fuzzbench/) to establish the experimental environments.
+As FuzzBench requires `docker`, please refer to [Docker](https://docs.docker.com/engine/install/linux-postinstall)
+
 You can also follow the instructions below to construct/evaluate SeamFuzz on FuzzBench.
 
 We modified some parts of FuzzBench to evaluate some benchmark programs (objdump, infotocap, podofopdfinfo) as follows:
@@ -38,7 +40,7 @@ Following command will install the prerequisites for running fuzzbench.
 sudo apt-get install python3-venv python3-pip docker  python3.9-venv python3.9-dev docker docker-compose
 ```
 
-After installing docker, users are recommended to verify that `docker` command can be used without `sudo`. 
+After installing docker, users are recommended to manage `docker` as a non-root user. 
 You can do this process by following the commands below.
 
 ```
