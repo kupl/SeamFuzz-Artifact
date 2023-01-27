@@ -56,6 +56,7 @@ please follow the command below.
 
 # git clone our repositoy, apply patches and make venv setup with installing dispatcher docker image
 /workspace& git clone https://github.com/kupl/SeamFuzz-Artifact
+/workspace$ cp SeamFuzz-Aritfact/patches/* ./fuzzbench/
 /workspace$ SeamFuzz-Aritfact/scripts/apply_patch.sh ./fuzzbench
 /workspace$ SeamFuzz-Aritfact/scripts/setup_script.sh ./fuzzbench
 ```
