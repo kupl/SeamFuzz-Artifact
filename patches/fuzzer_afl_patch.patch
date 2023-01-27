@@ -1,0 +1,58 @@
+--- a/fuzzers/afl/fuzzer.py	2023-01-28 05:55:35.781286096 +0900
++++ b/fuzzbench/fuzzers/afl/fuzzer.py	2023-01-27 09:31:18.748139407 +0900
+@@ -119,13 +119,48 @@
+     dictionary_path = utils.get_dictionary_path(target_binary)
+     if dictionary_path:
+         command.extend(['-x', dictionary_path])
+-    command += [
+-        '--',
+-        target_binary,
+-        # Pass INT_MAX to afl the maximize the number of persistent loops it
+-        # performs.
+-        '2147483647'
+-    ]
++    if 'infotocap' in target_binary:    # for fuzzing stand-alone program
++        command += [
++                '--',
++                target_binary,
++                '@@'
++        ]
++    elif 'objdump' in target_binary:    # for fuzzing stand-alone program
++        command += [
++                '--',
++                target_binary,
++                '--dwarf-check',
++                '-C',
++                '-g',
++                '-f',
++                '-dwarf',
++                '-x',
++                '@@'
++        ]
++    elif 'podofo' in target_binary:     # for fuzzing stand-alone program
++        command += [
++                '--',
++                target_binary,
++                '@@'
++        ]
++    elif 'xmllint' in target_binary:    # for fuzzing stand-alone program
++        command += [
++                '--',
++                target_binary,
++                '--valid',
++                '--oldxml10',
++                '--push',
++                '--memory',
++                '@@'
++        ]
++    else:
++        command += [
++            '--',
++            target_binary,
++            # Pass INT_MAX to afl the maximize the number of persistent loops it
++            # performs.
++            '2147483647'
++        ]
+     print('[run_afl_fuzz] Running command: ' + ' '.join(command))
+     output_stream = subprocess.DEVNULL if hide_output else None
+     subprocess.check_call(command, stdout=output_stream, stderr=output_stream)

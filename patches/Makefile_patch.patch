@@ -1,0 +1,11 @@
+--- a/Makefile	2023-01-28 05:55:35.773285681 +0900
++++ b/fuzzbench/Makefile	2023-01-28 05:58:32.110430499 +0900
+@@ -48,7 +48,7 @@
+ VENV_ACTIVATE := .venv/bin/activate
+ 
+ ${VENV_ACTIVATE}: requirements.txt
+-	python3.9 -m venv .venv || python3 -m venv .venv
++	python3 -m venv .venv
+ 	source ${VENV_ACTIVATE} && python3 -m pip install --upgrade pip setuptools && python3 -m pip install -r requirements.txt
+ 
+ install-dependencies: ${VENV_ACTIVATE}
