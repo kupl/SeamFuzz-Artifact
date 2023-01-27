@@ -15,8 +15,10 @@ Please refer to [STRUCTURE.md](./STRUCTURE.md) for SeamFuzz structure descriptio
 # Benchmarks
 We offer all benchmarks used for our experiments and a script file for building each benchmarks in `benchmarks` directory.
 Note that, we evaluated all benchmarks on FuzzBench framework.
+To evaulate those benchmarks on FuzzBench framework, please copy all contents in `benchmarks` directory into the benchmark directory in users' FuzzBench framework.
 
-You can follow the instructions written in `Dockerfile` and `build.sh` in each benchmark directory to build your own fuzzer implemented benchmark programs, but we offer a building script file `get_implemented_target.sh` which uses Fuzzbench Framework.
+If users prefer to run the fuzzers without using FuzzBench framework, you can follow the instructions written in `Dockerfile` and `build.sh` in each benchmark directory to build your own fuzzer implemented benchmark program.
+We also offer a building script file `get_implemented_target.sh` which uses Fuzzbench Framework.
  
 ```
 ./scripts/get_implemented_target.sh [FUZZBENCH] [FUZZER] [BENCHMARK]
