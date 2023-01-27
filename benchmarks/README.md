@@ -8,7 +8,7 @@ For most benchmark programs in this directory, users only need to put them in `b
 /SeamFuzz-Artifact$ cp -r ./benchmarks [FUZZBENCH_PATH]/
 ```
 
-However, the following programs needs to modify some parts of the source code of Fuzzbench as explained in [INSTALL.md](../INSTALL.md):
+However, to evaluate the following programs needs modification on some parts of the source code in Fuzzbench as explained in [INSTALL.md](../INSTALL.md):
 * objdump
 * infotocap
 * podofo
