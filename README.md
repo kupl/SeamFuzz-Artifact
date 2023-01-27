@@ -10,7 +10,7 @@ Please refer to [REQUIREMENTS.md](./REQUIREMENTS.md) for the operating system, h
 Please refer to [INSTALL.md](./INSTALL.md) for installation.
 
 # Structure
-Please refer to [STRUCTURE.md](./STRUCTURE.md) for SeamFuzz structure description.
+Please refer to [STRUCTURE.md](./STRUCTURE.md) for SeamFuzz/FuzzBench(modified) structure description.
 
 # Benchmarks
 We offer all benchmarks used for our experiments and a script file for building each benchmarks in `benchmarks` directory.
