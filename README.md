@@ -42,6 +42,7 @@ Once the setup instruction is successfully done(or using our VM image), you can 
 
 ```
 /SeamFuzz-Artifact& echo "libxml2-v2.9.2" > ./scripts/bench.txt
+/SeamFuzz-Artifact& echo "aflpp aflppmopt seamfuzz" > ./scripts/fuzzer.txt
 /SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 2 -s 10800 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e libxml2test
 ```
 
@@ -97,10 +98,32 @@ objdump          |   709        0     |   590       0       -16.8%          0%  
 
 
 ### Performing full experiments.
-We also provide running script files which reproduce all result tables(Table 2, 3, 4, and 5) in our paper.
+By using `run_fuzzbench.sh` script file, users can do all experiments in our paper.
+
+```
+./run_fuzzbench.sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME] -F [FUZZBENCH_PATH] -b [BENCHMARK_PATH] -f [FUZZER_PATH]
+
+ [TRIALS]: the number of trials of the intended experiments. The default value is 20
+ [TIME]: the seconds for the running experiments. The default value is 86400, which is 24 hours
+ [EXP_PATH]: the path for storing the running data of FuzzBench. The default path is [the working directory]/data/
+ [REPORT]: the path for storing the report of FuzzBench. The default path is [the working directory]/report/
+ [EXP_NAME]: the name of the experiments which will be stored in [EXP_PATH]. The default name is maintable
+ [FUZZBENCH_PATH] : the path to fuzzbench. The default path is [working directory]/fuzzbench
+ [BENCHMARK_PATH] : the path to bench.txt file which contains the benchmark programs to be evaluated. The default is [working_directory]/scripts/bench.txt
+ [FUZZER_PATH] : the path to fuzzer.txt file which contains the fuzzers to be evaluated. The default is [working_directory]/scripts/fuzzer.txt
+
+```
 
 
-Once the setup is properly prepared (or using VM), enter the following command to reproduce the main evlauation results in our paper, which is Table 2 in Section IV.
+The command below performs the main experiments (Table 2 in our paper).
+```
+/SeamFuzz-Artifact& echo "arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer infotocap libarchive_libarchive_fuzzer zstd_stream_decompress libpng libxml2-v2.9.2 objdump openssl_x509 php_php-fuzz-parser podofo poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz" > ./scripts/bench.txt
+/SeamFuzz-Artifact& echo "aflpp aflppmopt seamfuzz" > ./scripts/fuzzer.txt
+/SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table2
+```
+
+* Note that 
+
 
 ## With Reproducing-Script Files
 
