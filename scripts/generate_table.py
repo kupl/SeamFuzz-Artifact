@@ -82,27 +82,6 @@ ratio_crash_dict = dict()
 ratio_coverage_dict = dict()
 
 
-# Generate Venn-diagram for the unique vulnerabilities found by each fuzzer.
-
-tmp_crash_dict = dict()
-crash_elements = []
-fuzzer_elements = []
-for fuzzer in fuzzers:
-    tmp_set = set()
-    for b in benchmarks:
-        tmp_set |= unique_crashes_dict[fuzzer][b]
-
-    tmp_crash_dict[fuzzer] = tmp_set
-    crash_elements.append(tmp_set)
-    fuzzer_elements.append(fuzzer)
-
-
-v = venn3(crash_elements, tuple(fuzzer_elements))
-#v=venn3([tmp_crash_dict['aflpp'], tmp_crash_dict['aflppmopt'], tmp_crash_dict['seam']], ('aflpp', 'aflppmopt', 'seam'))
-
-plt.title("Unique Vulnerabilities")
-plt.savefig(result_path + "/unique_vul_venn_diagram.png")
-
 for fuzzer in fuzzers:
     if ("mopt" in fuzzer) or ("seam" in fuzzer):
         ratio_crash_dict[fuzzer] = dict()
@@ -171,12 +150,22 @@ f.write("-----------------------------------------------------------\n")
 f.close()
 
 
-'''
-print("aflpp & aflppmopt & seamfuzz: " + v.get_label_by_id('111').get_text())
-print("aflpp & aflppmopt - seamfuzz: " + v.get_label_by_id('110').get_text())
-print("aflpp - aflppmopt - seamfuzz: " + v.get_label_by_id('100').get_text())
-print("aflpp - aflppmopt & seamfuzz: " + v.get_label_by_id('101').get_text())
-print("aflppmopt & seamfuzz - aflpp: " + v.get_label_by_id('011').get_text())
-print("seamfuzz - aflppmopt - aflpp: " + v.get_label_by_id('001').get_text())
-print("aflppmopt - seamfuzz - aflpp: " + v.get_label_by_id('010').get_text())
-'''
+# Generate Venn-diagram for the unique vulnerabilities found by each fuzzer.
+tmp_crash_dict = dict()
+crash_elements = []
+fuzzer_elements = []
+for fuzzer in fuzzers:
+    tmp_set = set()
+    for b in benchmarks:
+        tmp_set |= unique_crashes_dict[fuzzer][b]
+
+    tmp_crash_dict[fuzzer] = tmp_set
+    crash_elements.append(tmp_set)
+    fuzzer_elements.append(fuzzer)
+
+
+v = venn3(crash_elements, tuple(fuzzer_elements))
+#v=venn3([tmp_crash_dict['aflpp'], tmp_crash_dict['aflppmopt'], tmp_crash_dict['seam']], ('aflpp', 'aflppmopt', 'seam'))
+
+plt.title("Unique Vulnerabilities")
+plt.savefig(result_path + "/unique_vul_venn_diagram.png")
