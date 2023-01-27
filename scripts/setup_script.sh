@@ -8,12 +8,6 @@
 # ex) ./setup_script.sh ./fuzzbench
 FUZZBENCH_PATH=${1}
 
-sudo apt-get install -y python3-venv python3-dev build-essential libpq-dev python3-pip docker-compose
-
-sudo groupadd docker
-sudo gpasswd -a $USER docker
-newgrp docker
-
 cd $FUZZBENCH_PATH && make
 
 # build google-dispatcher-image which is compatible with the old version of FuzzBench (commit f1c1291)
