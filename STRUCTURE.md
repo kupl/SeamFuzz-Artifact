@@ -1,6 +1,6 @@
 # Structure
 As SeamFuzz is built on [AFL++](https://github.com/aflplusplus/aflplusplus)-v3.15, it generally follows the same structure of AFL++.
-In this document, we breifly explain the source codes we added/modified to AFL++ for SeamFuzz implementation.
+In this document, we briefly explain the source codes we added/modified to AFL++ for SeamFuzz implementation.
 
 ```
 SeamFuzz                           
