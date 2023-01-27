@@ -21,7 +21,7 @@ If users prefer to run the fuzzers without using FuzzBench framework, you can fo
 We also offer a building script file `get_implemented_target.sh` which uses Fuzzbench Framework.
  
 ```
-./scripts/get_implemented_target.sh [FUZZBENCH] [FUZZER] [BENCHMARK]
+/SeamFuzz-Artifact$ ./scripts/get_implemented_target.sh [FUZZBENCH] [FUZZER] [BENCHMARK]
 
 [FUZZBENCH]: an absolute path to FuzzBench Framework. 
 [FUZZER] : any fuzzer in FuzzBench/fuzzers. 
