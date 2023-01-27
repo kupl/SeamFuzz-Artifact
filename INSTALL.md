@@ -29,7 +29,7 @@ If the users want to evaluate our fuzzers on the FuzzBench framework from origin
 please modify the files above.
 Otherwise, FuzzBench may not properly work on some benchmark programs we provide.
 
-For more detail, please refer to [benchmarks](./benchmarks)
+For more detail, please refer to [benchmarks](./benchmarks).
 
 ### Using VM(VirtualMachine) 
 We also provide a VM image file which contain all contents to evaluate the experiments.
