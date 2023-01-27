@@ -38,12 +38,13 @@ Following command will install the prerequisites for running fuzzbench.
 sudo apt-get install python3-venv python3-pip docker  python3.9-venv python3.9-dev docker docker-compose
 ```
 
-After installing docker, users are recommended to make 
+After installing docker, users are recommended to verify that `docker` command can be used without `sudo`. 
+You can do this process by following the commands below.
 
 ```
 sudo groupadd docker
 sudo gpasswd -a $USER docker
-sudo service docker restart
+newgrp docker
 ```
 
 The command below will setup FuzzBench framework on a local machine.
