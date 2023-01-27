@@ -61,6 +61,9 @@ INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'seamfuzz', 'benchmark': 'libx
 
 When all process termintes, you can see the following output:
 ```
+Experiment  : libxml2test
+Total Time  : 10800 seconds
+Total Trials: 2 trials
 ----------------------------------------------------------------------------------------------------------------------------
     program      |        AFL++       |                AFL++_MOpt               |                   SeamFuzz               |
                  |  Cover    Crashes  |  Cover    Crashes    R_Cov    R_Crashes |  Cover    Crashes    R_Cov    R_Crashes  |
