@@ -5,7 +5,7 @@ and therefore, the setup environments for our artifact is the same as the one fo
 Please refer to the following [link](https://google.github.io/fuzzbench/) to establish the experimental environments.
 You can also follow the instructions below to construct/evaluate SeamFuzz on FuzzBench.
 
-We modified some parts of FuzzBench to evaluate some benchmark programs (objdump, infotocap, podofopdfinfo, magma_libxml2_xmllint) as follows:
+We modified some parts of FuzzBench to evaluate some benchmark programs (objdump, infotocap, podofopdfinfo) as follows:
 ```
 fuzzbench
 └── experiment
