@@ -40,10 +40,13 @@ Users can set up all requirements and pull the dispatcher-image (the old version
 /SeamFuzz-Artifact$ ./scripts/setup_script.sh [FUZZBENCH] 
 ```
 
-If users do not copy the fuzzbench directory from this repository, but use the original FuzzBench with the commit version we used, 
-they also need to follow the command below to apply patches on some source codes described above.
+If users do not copy the fuzzbench directory from this repository, but want to use the original FuzzBench with the commit version we used, 
+please follow the command below.
 ```
-/SeamFuzz-Artifact$ ./scripts/apply_patch.sh [FUZZBENCH]
+/workspace$ git clone https://github.com/google/fuzzbench
+/workspace$ git -C ./fuzzbench checkout f1c1291
+/workspace$ [SEAMFUZZ-ARTIFACT]/scripts/apply_patch.sh ./workspace/fuzzbench
+/workspace$ [SEAMFUZZ-ARTIFACT]/scripts/setup_script.sh ./workspace/fuzzbench
 ```
 
 
