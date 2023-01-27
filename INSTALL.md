@@ -36,7 +36,7 @@ For more detail, please refer to [benchmarks](./benchmarks).
 
 Users can set up all requirements and pull the dispatcher-image (the old version) by following the command below:
 ```
-/SeamFuzz-Artifact$ ./scripts/setup_script.sh ./fuzzbench 
+/SeamFuzz-Artifact$ ./scripts/setup_script.sh ./fuzzbench ./
 ```
 
 ### Using FuzzBench(old-version) not provided by ours
