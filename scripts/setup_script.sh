@@ -27,5 +27,5 @@ pushd $FUZZBENCH_PATH
 source .venv/bin/activate && pip install -r requirements.txt && pip install matplotlib_venn && deactivate
 popd
 
-mv $SEAMFUZZ_PATH/benchmarks/* $FUZZBENCH_PATH/benchmarks/
-mv $SEAMFUZZ_PATH/fuzzers/* $FUZZBENCH_PATH/fuzzers/
+cp -r $SEAMFUZZ_PATH/benchmarks/* $FUZZBENCH_PATH/benchmarks/
+cp -r $SEAMFUZZ_PATH/fuzzers/* $FUZZBENCH_PATH/fuzzers/
