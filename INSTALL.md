@@ -33,14 +33,13 @@ Otherwise, FuzzBench may not properly work on some benchmark programs we provide
 For more detail, please refer to [benchmarks](./benchmarks).
 
 ### Using FuzzBench provided by ours
-As explained in [REQUIREMENTS.md](./REQUIREMENTS.md), 
 
 Users can set up all requirements and pull the dispatcher-image (the old version) by following the command below:
 ```
 /SeamFuzz-Artifact$ ./scripts/setup_script.sh [FUZZBENCH] 
 ```
 
-If users do not copy the fuzzbench directory from this repository, but want to use the original FuzzBench with the commit version we used, 
+If users do not copy the fuzzbench directory from this repository, but want to use the original FuzzBench with the commit version we used (f1c1291), 
 please follow the command below.
 ```
 /workspace$ git clone https://github.com/google/fuzzbench
