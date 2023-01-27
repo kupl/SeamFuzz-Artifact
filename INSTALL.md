@@ -25,9 +25,9 @@ Otherwise, FuzzBench may not properly work on some benchmark programs we provide
 ### Using VM(VirtualMachine) 
 We also provide a VM image file which contain all contents to evaluate the experiments.
 The VM image is built on [VirtualBox 7.0](https://www.virtualbox.org).
-You can donwload the VM image from the following link.
-
+This VM is set to use 48GB memories and 8 CPU cores with 1.5 TB disk.
 The sudo user password is set to "1234"
+You can donwload the VM image from the following link.
 
 ### From Source
 As we mentioned in [REQUIREMENTS.md](./REQUIREMENTS.md), the FuzzBench we provided in this repository recommend to use **python-3.9**.
