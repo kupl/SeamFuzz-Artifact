@@ -44,6 +44,7 @@ Once the setup instruction is successfully done(or using our VM image), you can 
 ```
 /SeamFuzz-Artifact$ ./scripts/small_experiment.sh [FUZZBENCH] [EXP_NAME]
 ```
+where [FUZZBENCH] is an absolute path to FuzzBench framework, and [EXP_NAME] is the name of the experiments the user decide.
 
 Then, you will see the fuzzing progress, which is from FuzzBench, as follows:
 
