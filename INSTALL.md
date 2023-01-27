@@ -1,6 +1,6 @@
 # Setup
 ## Building SeamFuzz for Fuzzbench
-All experiments in our paper was done on [FuzzBench](https://github.com/google/fuzzbench) framework,
+All experiments in our paper were done on [FuzzBench](https://github.com/google/fuzzbench) framework,
 and therefore, the setup environments for our artifact is the same as the one for [FuzzBench](https://github.com/google/fuzzbench).
 Please refer to the following [link](https://google.github.io/fuzzbench/) to establish the experimental environments.
 As FuzzBench requires `docker`, please refer to [Docker](https://docs.docker.com/engine/install/linux-postinstall) for Docker installation.
