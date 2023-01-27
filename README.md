@@ -51,9 +51,9 @@ Then, you will see the fuzzing progress, which is from FuzzBench, as follows:
 ```
 ...
 INFO:root:Measuring all trials.
-INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflpp', 'benchmark': '', 'trial_id':19', 'cycle':9}
-INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflppmopt', 'benchmark': '', 'trial_id':20', 'cycle':9}
-INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'seamfuzz', 'benchmark': '', 'trial_id':22', 'cycle':9}
+INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflpp', 'benchmark': 'libxml2-v2.9.2', 'trial_id':19', 'cycle':9}
+INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflppmopt', 'benchmark': 'libxml2-v2.9.2', 'trial_id':20', 'cycle':9}
+INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'seamfuzz', 'benchmark': 'libxml2-v2.9.2', 'trial_id':22', 'cycle':9}
 ...
 ```
 
