@@ -195,7 +195,7 @@ The commands below performs experiments in our paper.
 * Note that running the command above may not work properly due to memory/CPU issues. In this case, please reduce the number of trials (-t options) or evaluate some parts of the benchmarks (reducing the number of benchmarks evaluating at one time).
 
 ### Result
-After running each script file, `result` directory is produced in the current directory.
+After running `run_fuzzbench.sh` script file, `result` directory is produced in the current directory.
 The details are as follows:
 
 ```
