@@ -40,7 +40,7 @@ Users can set up all requirements and pull the dispatcher-image (the old version
 /SeamFuzz-Artifact$ ./scripts/setup_script.sh [FUZZBENCH] 
 ```
 
-If users do not copy the fuzzbench directory from this repository, but the original FuzzBench with the commit version we used, 
+If users do not copy the fuzzbench directory from this repository, but use the original FuzzBench with the commit version we used, 
 they also need to follow the command below to apply patches on some source codes described above.
 ```
 /SeamFuzz-Artifact$ ./scripts/apply_patch.sh [FUZZBENCH]
