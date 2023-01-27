@@ -214,16 +214,16 @@ results
 ## Without Reproducing-Script file 
 You may want to run FuzzBench with your own flavors in usage.
 
-```
-./make_local_config.sh $TRIALS $TIME $EXP_PATH $REPORT
-cp ./local-experiment-config.yaml [FUZZBENCH]
+```bash
+ # Set local configuration 
+ $ ./make_local_config.sh [TRIALS] [TIME] [EXP_PATH] [REPORT] [FUZZBENCH_PATH]
 
-PYTHONPATH=[FUZZBENCH] \
-python3 [FUZZBENCH]/experiment/run_experiment.py -cb [N] -a -c [FUZZBENCH]/local-experiment-config.yaml \
--b [BENCHMARKS] -f [FUZZERS] -e [EXP_NAME]
-```
-
-```
+ $ source [FUZZBENCH_PATH]/.venv/bin/activate
+ $ PYTHONPATH=[FUZZBENCH] \
+ $ python3 [FUZZBENCH]/experiment/run_experiment.py -cb [N] -a -c [FUZZBENCH]/local-experiment-config.yaml \
+ $ -b [BENCHMARKS] -f [FUZZERS] -e [EXP_NAME]
+ 
+ 
 -cb [N]: cuncurrent building options. Higher the value, faster the building process. 
 [BENCHMARKS] : give the full name of the the programs which will be used for experiments. The benchmark programs are in ./fuzzbench/benchmarks directory. ex) "-b arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer"
 [FUZZERS] : give the full name of the fuzzers which will be used for experiments. The fuzzers are in ./fuzzbench/fuzzers directory. ex) "-f aflpp aflppmopt seamfuzz"
