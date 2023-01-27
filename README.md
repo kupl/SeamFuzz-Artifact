@@ -15,10 +15,9 @@ Please refer to [STRUCTURE.md](./STRUCTURE.md) for SeamFuzz structure descriptio
 # Benchmarks
 We offer all benchmarks used for our experiments and a script file for building each benchmarks in `benchmarks` directory.
 Note that, we evaluated all benchmarks on FuzzBench framework.
-To evaulate those benchmarks on FuzzBench framework, please copy all contents in `benchmarks` directory into the benchmark directory in users' FuzzBench framework.
+To evaulate those benchmarks on FuzzBench framework, copy all contents in `benchmarks` directory into the benchmark directory in users' FuzzBench framework.
 
-If users prefer to run the fuzzers without using FuzzBench framework, you can follow the instructions written in `Dockerfile` and `build.sh` in each benchmark directory to build your own fuzzer implemented benchmark program.
-We also offer a building script file `get_implemented_target.sh` which uses Fuzzbench Framework.
+We also offer a script file `get_implemented_target.sh` which extracts the implemented target programs and the fuzzer binary file from FuzzBench docker image.
  
 ```
 /SeamFuzz-Artifact$ ./scripts/get_implemented_target.sh [FUZZBENCH] [FUZZER] [BENCHMARK]
@@ -42,10 +41,8 @@ Note that conducting experiments for all benchmarks (Table 2 in our paper) takes
 Once the setup instruction is successfully done(or using our VM image), you can perform the small experiments with the following command:
 
 ```
-/SeamFuzz-Artifact& cat ./scripts/bench.txt
-libxml2-v2.9.2
-
-/SeamFuzz-Artifact$ ./scripts/main_eval.sh ./fuzzbench/ ./scripts/bench.txt 2 10800 test
+/SeamFuzz-Artifact& echo "libxml2-v2.9.2" > ./scripts/bench.txt
+/SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 2 -s 10800 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e libxml2test
 ```
 
 Then, you will see the fuzzing progress, which is from FuzzBench, as follows:
@@ -54,8 +51,11 @@ Then, you will see the fuzzing progress, which is from FuzzBench, as follows:
 ...
 INFO:root:Measuring all trials.
 INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflpp', 'benchmark': 'libxml2-v2.9.2', 'trial_id':19', 'cycle':9}
+INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflpp', 'benchmark': 'libxml2-v2.9.2', 'trial_id':20, 'cycle':9}
 INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflppmopt', 'benchmark': 'libxml2-v2.9.2', 'trial_id':20', 'cycle':9}
+INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'aflppmopt', 'benchmark': 'libxml2-v2.9.2', 'trial_id':21', 'cycle':9}
 INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'seamfuzz', 'benchmark': 'libxml2-v2.9.2', 'trial_id':22', 'cycle':9}
+INFO:root:Measuring cycle : 9, Extras: {'fuzzer': 'seamfuzz', 'benchmark': 'libxml2-v2.9.2', 'trial_id':23', 'cycle':9}
 ...
 ```
 
