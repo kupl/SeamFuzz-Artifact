@@ -117,7 +117,7 @@ By running `run_fuzzbench.sh` script file, users can do all experiments in our p
 The commands below performs experiments in our paper.
 
 <details>
-<summary> Table 2 in our paper </summary>
+<summary> Table 2 </summary>
 <div markdown="1">
 
 ```bash
@@ -136,7 +136,7 @@ The commands below performs experiments in our paper.
 
 
 <details>
-<summary> Table 3 in our paper </summary>
+<summary> Table 3 </summary>
 <div markdown="1">
 
 ```bash
@@ -155,7 +155,7 @@ The commands below performs experiments in our paper.
 
 
 <details>
-<summary> Table 4 in our paper </summary>
+<summary> Table 4 </summary>
 <div markdown="1">
 
 ```bash
@@ -174,7 +174,7 @@ The commands below performs experiments in our paper.
 
 
 <details>
-<summary> Table 5 in our paper </summary>
+<summary> Table 5 </summary>
 <div markdown="1">
 
 ```bash
