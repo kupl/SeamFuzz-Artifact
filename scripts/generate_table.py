@@ -18,7 +18,7 @@ exp_path = sys.argv[2]
 given_time = sys.argv[3]
 given_trials = sys.argv[4]
 exp_name = sys.argv[5]
-result_path = sys.argv[6] + exp_name
+result_path = sys.argv[6] + "/" + exp_name
 
 data = pd.read_csv(report_path + "/experimental/" + exp_name + "/data.csv.gz")
 df = pd.DataFrame(data, columns=data.keys())
