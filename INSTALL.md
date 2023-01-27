@@ -31,30 +31,6 @@ This VM is set to use 48GB memories and 8 CPU cores with 1.5 TB disk.
 The sudo user password is set to "1234"
 You can donwload the VM image from the following link.
 
-### From Source
-As we mentioned in [REQUIREMENTS.md](./REQUIREMENTS.md), the FuzzBench we provided in this repository recommend to use **python-3.9**.
-
-Following command will install the prerequisites for running fuzzbench.  
-
-```
-sudo apt-get install python3-venv python3-pip docker  python3.9-venv python3.9-dev docker docker-compose
-```
-
-After installing docker, users are recommended to manage `docker` as a non-root user. 
-You can do this process by following the commands below.
-
-```
-sudo groupadd docker
-sudo gpasswd -a $USER docker
-newgrp docker
-```
-
-The command below will setup FuzzBench framework on a local machine.
-```
-cd ./fuzzbench & make
-```
-
-
 ## Building SeamFuzz without FuzzBench
 The source code for SeamFuzz is on ./fuzzbench/fuzzers/seamfuzz/afl. 
 As SeamFuzz is built on AFL++, the installation process for SeamFuzz is the same as AFL++.
