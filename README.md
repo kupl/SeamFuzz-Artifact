@@ -211,7 +211,7 @@ results
 ...
 ```
 
-## Without Reproducing-Script file 
+## Without running the given script file 
 You may want to run FuzzBench with your own flavors in usage.
 
 ```bash
