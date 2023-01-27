@@ -24,7 +24,7 @@ docker rmi -f audxo14/seam-dispatcher
 docker load -i ./dispatcher.tar 
 
 pushd $FUZZBENCH_PATH
-source .venv/bin/activate && pip install -r requirements && pip install matplotlib_venn && deactivate
+source .venv/bin/activate && pip install -r requirements.txt && pip install matplotlib_venn && deactivate
 popd
 
 mv $SEAMFUZZ_PATH/benchmarks/* $FUZZBENCH_PATH/benchmarks/
