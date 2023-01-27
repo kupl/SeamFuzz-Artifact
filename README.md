@@ -116,8 +116,6 @@ By running `run_fuzzbench.sh` script file, users can do all experiments in our p
 
 The commands below performs experiments in our paper.
 
-</div>
-</details>
 <details>
 <summary> Table 2 in our paper </summary>
 <div markdown="1">
@@ -133,6 +131,65 @@ The commands below performs experiments in our paper.
  $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table2
 ```
 
+</div>
+</details>
+
+
+<details>
+<summary> Table 3 in our paper </summary>
+<div markdown="1">
+
+```bash
+ # Set the benchmark programs to evaluate 
+ $ echo "arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer infotocap libarchive_libarchive_fuzzer zstd_stream_decompress libpng libxml2-v2.9.2 objdump openssl_x509 php_php-fuzz-parser podofo poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz" > ./scripts/bench.txt
+
+ # Set fuzzers to evaluate
+ $ echo "noseamfuzz eachseamfuzz seamfuzz" > ./scripts/fuzzer.txt
+
+ # Running scripts with 20 trials for 24 hours.
+ $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table3
+```
+
+</div>
+</details>
+
+
+<details>
+<summary> Table 4 in our paper </summary>
+<div markdown="1">
+
+```bash
+ # Set the benchmark programs to evaluate 
+ $ echo "arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer libxml2-v2.9.2 php_php-fuzz-parser objdump openssl_x509 poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz" > ./scripts/bench.txt
+
+ # Set fuzzers to evaluate
+ $ echo "naiveseamfuzz seamfuzz" > ./scripts/fuzzer.txt
+
+ # Running scripts with 20 trials for 24 hours.
+ $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table4
+```
+
+</div>
+</details>
+
+
+<details>
+<summary> Table 5 in our paper </summary>
+<div markdown="1">
+
+```bash
+ # Set the benchmark programs to evaluate 
+ $ echo "arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer libxml2-v2.9.2 php_php-fuzz-parser objdump openssl_x509 poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz" > ./scripts/bench.txt
+
+ # Set fuzzers to evaluate
+ $ echo "seamfuzz seamfuzz1 seamfuzz5 seamfuzz20" > ./scripts/fuzzer.txt
+
+ # Running scripts with 20 trials for 24 hours.
+ $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table5
+```
+
+</div>
+</details>
 
 
 * Note that running the command above may not work properly due to memory/CPU issues. In this case, please reduce the number of trials (-t options) or evaluate some parts of the benchmarks (reducing the number of benchmarks evaluating at one time).
