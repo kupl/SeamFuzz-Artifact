@@ -31,6 +31,15 @@ Otherwise, FuzzBench may not properly work on some benchmark programs we provide
 
 For more detail, please refer to [benchmarks](./benchmarks).
 
+### Using FuzzBench provided by ours
+As explained in [REQUIREMENTS.md](./REQUIREMENTS.md), 
+
+Users can set up all requirements and pull the dispatcher-image (the old version) by following the command below:
+```
+/SeamFuzz-Artifact$ ./scripts/setup_script.sh [FUZZBENCH] 
+```
+
+
 ### Using VM(VirtualMachine) 
 We also provide a VM image file which contain all contents to evaluate the experiments.
 The VM image is built on [VirtualBox 7.0](https://www.virtualbox.org).
