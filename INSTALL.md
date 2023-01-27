@@ -58,7 +58,7 @@ please follow the command below.
 /workspace& git clone https://github.com/kupl/SeamFuzz-Artifact
 /workspace$ cp SeamFuzz-Aritfact/patches/* ./fuzzbench/
 /workspace$ SeamFuzz-Aritfact/scripts/apply_patch.sh ./fuzzbench
-/workspace$ SeamFuzz-Aritfact/scripts/setup_script.sh ./fuzzbench
+/workspace$ SeamFuzz-Aritfact/scripts/setup_script.sh ./fuzzbench ./SeamFuzz-Artifact
 ```
 
 
