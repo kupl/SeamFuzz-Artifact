@@ -36,15 +36,14 @@ Note that [BENCHMARK] with proper Dockerfile and build scripts and [FUZZER] must
 
 # How to use
 ### Performing small experiments
-We provide an example instruction which conducts a short experiment running **AFL++**, **AFL++_MOpt**, and **SeamFuzz** on a benchmark program `libxml2-v2.9.2` with 2 trials during 3 hours. 
+We provide an example instruction which conducts a short experiment running **AFL++**, **AFL++_MOpt**, and **SeamFuzz** on a benchmark program libxml2-v2.9.2 with 2 trials during 3 hours. 
 Note that conducting experiments for all benchmarks (Table 2 in our paper) takes at least **20,160 hours** (24 hours * 14 benchmarks * 20 trials * 3 fuzzers + N hours for building benchmarks/fuzzers) on a single core.
 
-Once the setup instruction is successfully done(or using our VM image), you can perform the small experiments we provide with the following command:
+Once the setup instruction is successfully done(or using our VM image), you can perform the small experiments with the following command:
 
 ```
-/SeamFuzz-Artifact$ ./scripts/small_experiment.sh [FUZZBENCH] [EXP_NAME]
+/SeamFuzz-Artifact$ ./scripts/main_eval.sh ./fuzzbench/ libxml2-v2.9.2 2 10800 test
 ```
-where [FUZZBENCH] is an absolute path to FuzzBench framework, and [EXP_NAME] is the name of the experiments the user decide.
 
 Then, you will see the fuzzing progress, which is from FuzzBench, as follows:
 
@@ -67,7 +66,7 @@ libxml2-v2.9.2   |  3986        0     | 3274        0       -17.9%          0%  
 ----------------------------------------------------------------------------------------------------------------------------
 ...
 ```
-You can also check the result file in `./results/[EXP_NAME]/result_table.txt`
+You can also check the result file in `./results/test/result_table.txt`
 
 * Note that the result table above was produced by using our VM image.
 
