@@ -174,6 +174,7 @@ static void usage(u8 *argv0, int more_help) {
       "  -K [1, 2]     - enable SeamFuzz \n"
       "                  1: use the original SeamFuzz which utilizes SeamFuzz data classification \n"
       "                  2: does not use SeamFuzz data classification (follows AFL++ criteria) \n"
+      "  -A path       - a path to thompson.py and enables using thompson sampling algorithm \n"
       "  -a float      - Set the value for alpha (syntactic similarity), default value is 0.1 [0 ... 1.0] \n"
       "  -g float      - Set the value for gamma (cluster), default value is 0.8 [0 ... 1.0] \n"
       "  -X [0, 100]   - Set the probability for exploration \n"
