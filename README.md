@@ -1,7 +1,9 @@
 # SeamFuzz-Artifact
 This repository is for the implementation of our paper accepted in ICSE 2023, "Learning Seed-Adaptive Mutation Strategies for
 Greybox Fuzzing".
-Our tool, [SeamFuzz](https://github.com/kupl/SeamFuzz-public), is a grey-box mutation-based fuzzer built on [AFL++](https://github.com/AFLplusplus/AFLplusplus)-v3.15++.
+Our tool, SeamFuzz, is a grey-box mutation-based fuzzer built on [AFL++](https://github.com/AFLplusplus/AFLplusplus)-v3.15++.
+
+[Learning Seed-Adaptive Mutation Strategies for Greybox Fuzzing](https://drive.google.com/file/d/122EviTKVZW45nuSksAPEYUUvDoYTGNmG/view?usp=share_link) : Accepted Version
 
 # Requirements
 Please refer to [REQUIREMENTS.md](./REQUIREMENTS.md) for the operating system, hardware, and software requirements.
@@ -212,6 +214,8 @@ results
 ```
 
 ## Without running the given script file 
+
+### On FuzzBench
 You may want to run FuzzBench with your own flavors in usage.
 
 ```bash
@@ -227,6 +231,30 @@ You may want to run FuzzBench with your own flavors in usage.
 -cb [N]: cuncurrent building options. Higher the value, faster the building process (may output EOF error if the value is too high for Hardware)
 [BENCHMARKS] : give the full name of the the programs which will be used for experiments. The benchmark programs are in ./fuzzbench/benchmarks directory. ex) "-b arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer"
 [FUZZERS] : give the full name of the fuzzers which will be used for experiments. The fuzzers are in ./fuzzbench/fuzzers directory. ex) "-f aflpp aflppmopt seamfuzz"
+```
+
+### Not on FuzzBench
+As SeamFuzz is built on AFL++, the usage is exactly the same as AFL++. Please refer to [AFL++](https://github.com/AFLplusplus/AFLplusplus).
+You can check the options of SeamFuzz and their meanings with the following command:
+
+```bash
+ # Complete build SeamFuzz from fuzzers/seamfuzz/afl/
+ $ ./afl-fuzz -h 
+ 
+ ...
+ SeamFuzz settings:
+  -K [1, 2]     - enable SeamFuzz
+                  1: use the original SeamFuzz which utilizes SeamFuzz data classification
+                  2: does not use SeamFuzz data classification (follows AFL++ criteria)
+  -A path       - a path to thompson.py and enables using thompson sampling algorithm 
+  -a float      - Set the value for alpha (syntactic similarity), default value is 0.1 [0 ... 1.0]
+  -g float      - Set the value for gamma (cluster), default value is 0.8 [0 ... 1.0]
+  -X [0, 100]   - Set the probability for exploration
+  -u            - Set the updating value for rewards
+ ...
+ 
+ $
+ 
 ```
 
 # Contact
