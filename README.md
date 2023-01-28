@@ -45,6 +45,7 @@ Once the setup instruction is successfully done(or using our VM image), you can 
 ```
 /SeamFuzz-Artifact$ echo "libxml2-v2.9.2" > ./scripts/bench.txt
 /SeamFuzz-Artifact$ echo "aflpp aflppmopt seamfuzz" > ./scripts/fuzzer.txt
+/SeamFuzz-Artifact$ source ./fuzzbench/.venv/bin/activate
 /SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 2 -s 10800 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e libxml2test
 ```
 
