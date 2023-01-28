@@ -72,8 +72,6 @@ while read line || [ -n "$line" ] ; do
     FUZZER="$FUZZER $line"
 done < $FUZZER_PATH
 
-source $FUZZBENCH_PATH/.venv/bin/activate
-
 # running fuzzbench with all benchmarks used in the main evaluation.
 PYTHONPATH=$FUZZBENCH_PATH/ python3 $FUZZBENCH_PATH/experiment/run_experiment.py -cb 1 -a -c $FUZZBENCH_PATH/local-experiment-config.yaml -b $BENCH -f $FUZZER -e $EXP_NAME
 
@@ -84,8 +82,6 @@ $SHELL_PATH/scripts/count_crash_inputs.sh $EXP_PATH $EXP_NAME $RESULTS
 
 # run generate_table.py file to generate result tables from the experiments
 python3 $SHELL_PATH/scripts/generate_table.py $REPORT $EXP_PATH $TIME $TRIALS $EXP_NAME $RESULTS
-
-deactivate
 
 # print out the result table.
 cat $RESULTS/$EXP_NAME/result_table
