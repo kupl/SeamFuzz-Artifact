@@ -155,7 +155,7 @@ The commands below performs experiments in our paper.
  $ echo "arrow_parquet-arrow-fuzz grok_grk_decompress_fuzzer infotocap libarchive_libarchive_fuzzer zstd_stream_decompress libpng libxml2-v2.9.2 objdump openssl_x509 php_php-fuzz-parser podofo poppler_pdf_fuzzer proj4_standard_fuzzer sqlite3_ossfuzz" > ./scripts/bench.txt
 
  # Set fuzzers to evaluate
- $ echo "noseamfuzz eachseamfuzz seamfuzz" > ./scripts/fuzzer.txt
+ $ echo "nocluster eachcluster seamfuzz" > ./scripts/fuzzer.txt
 
  # Running scripts with 20 trials for 24 hours.
  $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table3 -T 0
