@@ -111,7 +111,7 @@ objdump          |   709        0     |   590       0       -16.8%          0%  
 By running `run_fuzzbench.sh` script file, users can do all experiments in our paper.
 
 ```
-./run_fuzzbench.sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME] -F [FUZZBENCH_PATH] -b [BENCHMARK_PATH] -f [FUZZER_PATH]
+./run_fuzzbench.sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME] -F [FUZZBENCH_PATH] -b [BENCHMARK_PATH] -f [FUZZER_PATH] -T [TBL_TYPE]
 
  [TRIALS]: the number of trials of the intended experiments. The default value is 20
  [TIME]: the seconds for the running experiments. The default value is 86400, which is 24 hours
@@ -121,6 +121,7 @@ By running `run_fuzzbench.sh` script file, users can do all experiments in our p
  [FUZZBENCH_PATH] : the path to fuzzbench. The default path is [working directory]/fuzzbench
  [BENCHMARK_PATH] : the path to bench.txt file which contains the benchmark programs to be evaluated. The default is [working_directory]/scripts/bench.txt
  [FUZZER_PATH] : the path to fuzzer.txt file which contains the fuzzers to be evaluated. The default is [working_directory]/scripts/fuzzer.txt
+ [TBL_TYPE] : decides the types of the result table... default value is 1 which draws the table similar to Table 2 in our paper
 
 ```
 
@@ -157,7 +158,7 @@ The commands below performs experiments in our paper.
  $ echo "noseamfuzz eachseamfuzz seamfuzz" > ./scripts/fuzzer.txt
 
  # Running scripts with 20 trials for 24 hours.
- $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table3
+ $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table3 -T 0
 ```
 
 </div>
@@ -195,7 +196,7 @@ The commands below performs experiments in our paper.
  $ echo "seamfuzz seamfuzz1 seamfuzz5 seamfuzz20" > ./scripts/fuzzer.txt
 
  # Running scripts with 20 trials for 24 hours.
- $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table5
+ $ ./scripts/run_fuzzbench.sh -t 20 -s 86400 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e table5 -T 0
 ```
 
 </div>
