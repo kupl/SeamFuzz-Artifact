@@ -38,6 +38,9 @@ unique_crashes_dict=dict()
 
 mean_coverage_dict = dict()
 
+total_cov_dict = dict()
+total_crash_dict = dict()
+
 for fuzzer in fuzzers:
     coverage_selected_fuzzer = deduplicated_data[df['fuzzer'] == fuzzer]
     coverage_grouped = coverage_selected_fuzzer['edges_covered'].groupby(coverage_selected_fuzzer['benchmark'])
@@ -46,11 +49,13 @@ for fuzzer in fuzzers:
 
     unique_crashes_dict[fuzzer] = dict()
     mean_coverage_dict[fuzzer] = dict()
+    total_cov_dict[fuzzer] = 0
 
     for b in benchmarks:
         f.write(exp_name + ", " + fuzzer + ", " + b + ", " + str(coverage_grouped.mean()[b]) + "\n")
         
         mean_coverage_dict[fuzzer][b] = int(coverage_grouped.mean()[b])
+        total_cov_dict[fuzzer] += int(coverage_grouped.mean()[b])
 
         unique_crashes = crash_selected_fuzzer[df['benchmark'] == b]['crash_key'].dropna().unique()
         unique_crashes_dict[fuzzer][b] = set(unique_crashes)
@@ -69,15 +74,20 @@ for fuzzer in fuzzers:
     input_grouped = crash_input_selected_fuzzer['crashes'].groupby(crash_input_selected_fuzzer['benchmark'])
 
     mean_crash_dict[fuzzer] = dict()
+    total_crash_dict[fuzzer] = 0
 
     for b in benchmarks:
         mean_crash_dict[fuzzer][b] = int(input_grouped.mean()[b])
+        total_crash_dict[fuzzer] += int(input_grouped.mean()[b])
 
 f = open(result_path + "/result_table.txt", 'w')
 
 
 ratio_crash_dict = dict()
 ratio_coverage_dict = dict()
+
+total_ratio_crash_dict = dict()
+total_ratio_cov_dict = dict()
 
 
 for fuzzer in fuzzers:
@@ -103,6 +113,17 @@ for fuzzer in fuzzers:
             else:
                 ratio_crash_dict[fuzzer][b] = "NaN"
 
+        tmp_val = (float(total_cov_dict[fuzzer]) - float(total_cov_dict['aflpp'])) / float(total_cov_dict['aflpp']) * 100
+        total_ratio_cov_dict[fuzzer] = str(round(tmp_val, 1))
+        
+        if (total_crash_dict['aflpp'] != 0):
+            tmp_val = (float(total_crash_dict[fuzzer]) - float(total_crash_dict['aflpp'])) / float(total_crash_dict['aflpp']) * 100
+            total_ratio_crash_dict[fuzzer] = str(round(tmp_val, 1))
+        elif (mean_coverage_dict[fuzzer][b] == 0):
+            total_ratio_crash_dict[fuzzer] = "0%"
+        else:
+            total_ratio_crash_dict[fuzzer] = "NaN"
+
 
 # print the result table...
 f.write("Experiment  : " + exp_name + "\n")
@@ -125,7 +146,18 @@ for b in benchmarks:
 
     f.write("\n")
 
+f.write("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+f.write(f'{"Total":30s}|')
+
+for fuzzer in fuzzers:
+    if ("mopt" in fuzzer) or ("seam" in fuzzer):
+        f.write(f'{total_cov_dict[fuzzer]:>15d}' + f'{total_crash_dict[fuzzer]:>15d}' + f'{total_ratio_cov_dict[fuzzer]:>15s}' + f'{total_ratio_crash_dict[fuzzer]:>15s}|')
+    else:
+        f.write(f'{total_cov_dict[fuzzer]:>15d}' + f'{total_crash_dict[fuzzer]:>15d}|')
+
+f.write("\n")        
 f.write("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n\n")
+
 
 
 # Generate Venn-diagram for the unique vulnerabilities found by each fuzzer.
