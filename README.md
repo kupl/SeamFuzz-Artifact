@@ -262,14 +262,14 @@ You can check the options of SeamFuzz and their meanings with the following comm
  ...
 ```
 
-Running AFL++ with SeamFuzz options to test `objdump` is as follows:
+Running AFL++ with SeamFuzz options to test `objdump` (assume that objdump is AFL++-instrumented) is as follows:
 
 ```bash
  # Assume that objdump is AFL++-implemented. 
- $ ./afl-fuzz -K 1 -A [path_to_thompson.py] -i [path_to_seeds] -o ./output -- ./objdump @@
+ $ ./afl-fuzz -K 1 -A [path_to_thompson.py] -i [path_to_seeds] -o ./output -- ./objdump --dwarf-check -C -g -f --dwarf -x @@
  
  # Test objdump with setting alpha value to 0.5. 
- $ ./afl-fuzz -K 1 -A [path_to_thompson.py] -a 0.5 -i [path_to_seeds] -o ./output -- ./objdump @@
+ $ ./afl-fuzz -K 1 -A [path_to_thompson.py] -a 0.5 -i [path_to_seeds] -o ./output -- ./objdump --dwarf-check -C -g -f --dwarf -x @@
 ```
 
 # Contact
