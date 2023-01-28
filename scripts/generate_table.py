@@ -5,7 +5,10 @@
 # TIME: the seconds for the running experiments. The default value is 86400, which is 24 hours
 # [REPORT]: the path for storing the report of FuzzBench. must be given as an absolute path. The default path is the working directory/report/
 # [EXP_NAME]: the name of the experiments which will be stored in [EXP_PATH]. The default name is maineval
-# python3.9 generate_table.py [REPORT] [EXP_PATH] [TIME] [TRIALS] [EXP_NAME] [RESULTS]
+# [RESULTS] : the path to results
+# [TYPE] : 0 -> draw table with number of crashes and coverage only
+#          1 -> draw table with number of crashes, coverage, and the ratio like Table 2 in our paper
+# python3.9 generate_table.py [REPORT] [EXP_PATH] [TIME] [TRIALS] [EXP_NAME] [RESULTS] [TYPE]
 
 import pandas as pd
 import sys
