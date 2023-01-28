@@ -9,8 +9,9 @@
 # [EXP_PATH]: the name of the experiments which will be stored in [EXP_PATH]. The default name is maineval
 # [FUZZBENCH_PATH]: the path for fuzzbench
 # [BENCHMARK_PATH]: the "bench" file which specify benchmark programs for evaluation. "bench" file is in scripts directory
+# [TBL_TYPE]: decides the types of the result table... default value is 1 which draws the table similar to Table 2 in our paper
 #
-# ./run_fuzzbench.sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME] -F [FUZZBENCH_PATH] -b [BENCHMARK_PATH] -f [FUZZER_PATH]
+# ./run_fuzzbench.sh -t [TRIALS] -s [TIME] -p [EXP_PATH] -r [REPORT] -e [EXP_NAME] -F [FUZZBENCH_PATH] -b [BENCHMARK_PATH] -f [FUZZER_PATH] -T [TBL_TYPE]
 # ex) ./run_fuzzbench.sh -t 10 -s 900 -p ~/data/ -r ~/report/ test -f ~/fuzzbench -b ./bench.txt -F ./fuzzbench
 
 SHELL_PATH=`pwd -P`
@@ -20,6 +21,7 @@ BENCHMARK_PATH="$SHELL_PATH/scripts/bench.txt"
 FUZZER_PATH="$SHELL_PATH/scripts/fuzzer.txt"
 BENCH=""
 FUZZER=""
+TBL_TYPE="1"
 
 RESULTS="$SHELL_PATH/results"
 
@@ -55,6 +57,9 @@ while getopts "t:s:p:r:e:F:b:f:" opt; do
         f)
             FUZZER_PATH=$OPTARG
             ;;
+        T)
+            TBL_TYPE=$OPTARG
+            ;;
         ?) 
             echo "Invalid options"
             ;;
@@ -81,7 +86,7 @@ PYTHONPATH=$FUZZBENCH_PATH/ python3 $FUZZBENCH_PATH/experiment/run_experiment.py
 $SHELL_PATH/scripts/count_crash_inputs.sh $EXP_PATH $EXP_NAME $RESULTS
 
 # run generate_table.py file to generate result tables from the experiments
-python3 $SHELL_PATH/scripts/generate_table.py $REPORT $EXP_PATH $TIME $TRIALS $EXP_NAME $RESULTS
+python3 $SHELL_PATH/scripts/generate_table.py $REPORT $EXP_PATH $TIME $TRIALS $EXP_NAME $RESULTS $TBL_TYPE
 
 # print out the result table.
 cat $RESULTS/$EXP_NAME/result_table
