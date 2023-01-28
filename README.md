@@ -246,7 +246,7 @@ You can check the options of SeamFuzz and their meanings with the following comm
   -K [1, 2]     - enable SeamFuzz
                   1: use the original SeamFuzz which utilizes SeamFuzz data classification
                   2: does not use SeamFuzz data classification (follows AFL++ criteria)
-  -A path       - a path to thompson.py 
+  -A path       - a path to thompson.py and enables using thompson sampling algorithm 
   -a float      - Set the value for alpha (syntactic similarity), default value is 0.1 [0 ... 1.0]
   -g float      - Set the value for gamma (cluster), default value is 0.8 [0 ... 1.0]
   -X [0, 100]   - Set the probability for exploration
