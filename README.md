@@ -252,9 +252,16 @@ You can check the options of SeamFuzz and their meanings with the following comm
   -X [0, 100]   - Set the probability for exploration
   -u            - Set the updating value for rewards
  ...
+```
+
+Running AFL++ with SeamFuzz options to test `objdump` is as follows:
+
+```bash
+ # Assume that objdump is AFL++-implemented. 
+ $ ./afl-fuzz -K 1 -A [path_to_thompson.py] -i [path_to_seeds] -o ./output -- ./objdump @@
  
- $
- 
+ # Test objdump with setting alpha value to 0.5. 
+ $ ./afl-fuzz -K 1 -A [path_to_thompson.py] -a 0.5 -i [path_to_seeds] -o ./output -- ./objdump @@
 ```
 
 # Contact
