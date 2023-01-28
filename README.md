@@ -24,7 +24,7 @@ We also offer a script file `get_instrumented_target.sh` which extracts the inst
 ```
 /SeamFuzz-Artifact$ ./scripts/get_instrumented_target.sh [FUZZBENCH] [FUZZER] [BENCHMARK]
 
-[FUZZBENCH]: an absolute path to FuzzBench Framework. 
+[FUZZBENCH]: a path to FuzzBench Framework. 
 [FUZZER] : any fuzzer in FuzzBench/fuzzers. 
 [BENCHMARK] : any benchmark program in FuzzBench/benchmarks.
 ```
