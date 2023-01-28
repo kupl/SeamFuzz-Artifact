@@ -7,6 +7,7 @@
 # ./setup_script.sh [FUZZBENCH_PATH] [SEAMFUZZ_PATH]
 # ex) ./setup_script.sh ./fuzzbench ./seamfuzz-artifact
 FUZZBENCH_PATH=${1}
+SEAMFUZZ_PATH=${2}
 
 pushd $FUZZBENCH_PATH
 make
