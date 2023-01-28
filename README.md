@@ -232,8 +232,7 @@ You may want to run FuzzBench with your own flavors in usage.
 
  $ source [FUZZBENCH_PATH]/.venv/bin/activate
  $ PYTHONPATH=[FUZZBENCH] \
- $ python3 [FUZZBENCH]/experiment/run_experiment.py -cb [N] -a -c [FUZZBENCH]/local-experiment-config.yaml \
- $ -b [BENCHMARKS] -f [FUZZERS] -e [EXP_NAME]
+ $ python3 [FUZZBENCH]/experiment/run_experiment.py -cb [N] -a -c [FUZZBENCH]/local-experiment-config.yaml -b [BENCHMARKS] -f [FUZZERS] -e [EXP_NAME]
  
  
 -cb [N]: cuncurrent building options. Higher the value, faster the building process (may output EOF error if the value is too high for Hardware)
