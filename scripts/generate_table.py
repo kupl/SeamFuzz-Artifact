@@ -288,7 +288,7 @@ for fuzzer in fuzzers:
         for b in benchmarks:
             if (mean_coverage_dict[base_fuzz][b] != 0):
                 tmp_val = (float(mean_coverage_dict[fuzzer][b]) - float(mean_coverage_dict[base_fuzz][b])) / float(mean_coverage_dict[base_fuzz][b]) * 100
-                ratio_coverage_dict[fuzzer][b] = str(round(tmp_val, 1))
+                ratio_coverage_dict[fuzzer][b] = str(round(tmp_val, 1)) + "%"
             elif (mean_coverage_dict[fuzzer][b] == 0):
                 ratio_coverage_dict[fuzzer][b] = "0%"
             else:
@@ -297,19 +297,19 @@ for fuzzer in fuzzers:
                 
             if (mean_crash_dict[base_fuzz][b] != 0):
                 tmp_val = (float(mean_crash_dict[fuzzer][b]) - float(mean_crash_dict[base_fuzz][b])) / float(mean_crash_dict[base_fuzz][b]) * 100
-                ratio_crash_dict[fuzzer][b] = str(round(tmp_val, 1))
+                ratio_crash_dict[fuzzer][b] = str(round(tmp_val, 1)) + "%"
             elif (mean_crash_dict[fuzzer][b] == 0):
                 ratio_crash_dict[fuzzer][b] = "0%"
             else:
                 ratio_crash_dict[fuzzer][b] = "NaN"
 
         tmp_val = (float(total_cov_dict[fuzzer]) - float(total_cov_dict[base_fuzz])) / float(total_cov_dict[base_fuzz]) * 100
-        total_ratio_cov_dict[fuzzer] = str(round(tmp_val, 1))
+        total_ratio_cov_dict[fuzzer] = str(round(tmp_val, 1)) + "%"
         
         if (total_crash_dict[base_fuzz] != 0):
             tmp_val = (float(total_crash_dict[fuzzer]) - float(total_crash_dict[base_fuzz])) / float(total_crash_dict[base_fuzz]) * 100
-            total_ratio_crash_dict[fuzzer] = str(round(tmp_val, 1))
-        elif (mean_coverage_dict[fuzzer][b] == 0):
+            total_ratio_crash_dict[fuzzer] = str(round(tmp_val, 1)) + "%"
+        elif (mean_crash_dict[fuzzer][b] == 0):
             total_ratio_crash_dict[fuzzer] = "0%"
         else:
             total_ratio_crash_dict[fuzzer] = "NaN"
