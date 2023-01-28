@@ -52,8 +52,8 @@ Once the setup instruction is successfully done(or using our VM image), you can 
 ```
 /SeamFuzz-Artifact$ echo "libxml2-v2.9.2" > ./scripts/bench.txt
 /SeamFuzz-Artifact$ echo "aflpp aflppmopt seamfuzz" > ./scripts/fuzzer.txt
-/SeamFuzz-Artifact$ source ./fuzzbench/.venv/bin/activate
-/SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 2 -s 10800 -p ~/data/ -r ~/report/ -F ./fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e libxml2test
+/SeamFuzz-Artifact$ source ../fuzzbench/.venv/bin/activate
+/SeamFuzz-Artifact$ ./scripts/run_fuzzbench.sh -t 2 -s 10800 -p ~/data/ -r ~/report/ -F ../fuzzbench/ -b ./scripts/bench.txt -f ./scripts/fuzzer.txt -e libxml2test
 ```
 
 Then, you will see the fuzzing progress, which is from FuzzBench, as follows:
@@ -83,7 +83,7 @@ libxml2-v2.9.2   |  3986        0     | 3274        0       -17.9%          0%  
 ----------------------------------------------------------------------------------------------------------------------------
 ...
 ```
-You can also check the result file in `./results/test/result_table.txt`
+You can also check the result file in `./results/libxml2test/result_table.txt`
 
 You can evaluate other benchmark (e.g., objdump) with the similar commands/script files as below:
 
