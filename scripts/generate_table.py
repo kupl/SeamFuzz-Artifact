@@ -30,8 +30,6 @@ deduplicated_data = grouped_by_time.drop_duplicates(['trial_id'])
 fuzzers = df['fuzzer'].unique()
 benchmarks = df['benchmark'].unique()
 
-os.system("./scripts/count_crash_inputs.sh " + exp_path + " " + exp_name)
-
 f = open(result_path + "/coverage.csv", 'w')
 
 f.write("experiment, fuzzer, benchmark, average_coverage\n")
