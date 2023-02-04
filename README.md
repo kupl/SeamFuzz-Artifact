@@ -105,7 +105,7 @@ objdump          |   709        0     |   590       0       -16.8%          0%  
 ```
 
 * Note that the instructions above were performed on our VM image.
-* FuzzBench may report "the given experiment name is already given". In this case, please give different values for "-e" options when using our scripts or FuzzBench itself.
+* FuzzBench may report "the given experiment name already exists". In this case, please give different values for "-e" options when using our scripts or FuzzBench itself.
 
 
 ### Performing full experiments.
