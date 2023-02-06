@@ -273,6 +273,17 @@ Running AFL++ with SeamFuzz options to test `objdump` (assume that objdump is AF
  $ ./afl-fuzz -K 1 -A [path_to_thompson.py] -a 0.5 -i [path_to_seeds] -o ./output -- ./objdump --dwarf-check -C -g -f --dwarf -x @@
 ```
 
+You may need to setup certain environment variable to properly run AFL++ as follows:
+
+```bash
+ # Please enter the command below when your system is configured to send core dump notifications to an external utility, which is a default setting.
+ $ export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+ 
+ # Please enter the command below when your system uses on-demand CPU frequency scaling, which is a default setting. 
+ $ export AFL_SKIP_CPUFREQ=1
+```
+
+
 # Contact
 Myungho Lee (e-mail: myungho_lee@korea.ac.kr)
 
