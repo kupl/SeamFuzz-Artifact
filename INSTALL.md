@@ -62,6 +62,8 @@ This VM is set to use 48GB memories and 8 CPU cores with 1.5 TB disk.
 The sudo user password is set to "1234".
 You can donwload the VM image from the following link.
 
+[SeamFuzz VM](https://doi.org/10.5281/zenodo.7578055)
+
 ## Building SeamFuzz without FuzzBench
 The source code for SeamFuzz is on ./fuzzbench/fuzzers/seamfuzz/afl. 
 As SeamFuzz is built on AFL++, the installation process for SeamFuzz is the same as AFL++.
