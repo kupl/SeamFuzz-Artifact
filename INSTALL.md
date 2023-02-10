@@ -55,11 +55,11 @@ please follow the command below.
 ```
 
 ### Example (Building artifact on Ubuntu 20.04.5)
-The instructions below guide the users to build our artifact on [Ubuntu 20.04.5](https://releases.ubuntu.com/focal) wihtout any pre-installed packages. 
+The instructions below guide the users to build our artifact on [Ubuntu 20.04.5](https://releases.ubuntu.com/focal) wihtout any pre-installed additional packages. 
 
 
 ```
-# No packages are pre-installed after installing Ubuntu 20.04.5_server. 
+# No additional packages are pre-installed after installing Ubuntu 20.04.5_server. 
 
 
 /workspace$ sudo apt-get install -y build-essential libpq-dev docker docker-compose libssl-dev openssl wget zlib1g-dev libffi-dev
