@@ -58,40 +58,39 @@ please follow the command below.
 The instructions below guide the users to build our artifact on [Ubuntu 20.04.5](https://releases.ubuntu.com/focal) wihtout any pre-installed additional packages. 
 
 
+
 ```
 # No additional packages are pre-installed after installing Ubuntu 20.04.5_server. 
-
-
 /workspace$ sudo apt-get install -y build-essential libpq-dev docker docker-compose libssl-dev openssl wget zlib1g-dev libffi-dev
+
+/workspace$  sudo groupadd docker
+/workspace$  sudo gpasswd -a $USER docker
+/workspace$  newgrp docker
 
 # Install python==3.9.15
 /workspace$ wget https://www.python.org/ftp/python/3.9.15/Python-3.9.15.tgz
 /workspace$ tar -xvf Python-3.9.15.tgz
-/workspace$ pushd Pyon-3.9.15
+/workspace$ pushd Python-3.9.15
 /workspace$ ./configure --enable-optimizations
 /workspace$ make -j$(nproc)
 /workspace$ sudo make install
 /workspace$ popd
 
-# Upgrade pip version from 20.0.4 to 22.1.2
+# Update pip to 22.1.2
+/workspace$ sudo ln -fs /usr/local/bin/python3.9 /usr/bin/python3
+/workspace$ sudo ln -fs /usr/local/bin/python3.9 /usr/local/bin/python3
 /workspace$ python3 -m pip install --upgrade pip==22.1.2
-/workspace$ python3 -m pip install virtualenv
+/workspace$ python3 -m pip install virtualenv docker-compose==1.25.0
 
-# Make settings for docker
-/workspace$  sudo groupadd docker
-/workspace$  sudo gpasswd -a $USER docker
-/workspace$  newgrp docker
-
-# Use FuzzBench we used for our evaluation
 /workspace$ git clone https://github.com/google/fuzzbench
 /workspace$ git -C ./fuzzbench checkout f1c1291
 
-
 /workspace$ git clone https://github.com/kupl/SeamFuzz-Artifact
-/workspace$ cp SeamFuzz-Aritfact/patches/* ./fuzzbench/
-/workspace$ SeamFuzz-Aritfact/scripts/apply_patch.sh ./fuzzbench
-/workspace$ SeamFuzz-Aritfact/scripts/setup_script.sh ./fuzzbench ./SeamFuzz-Artifact
+/workspace$ cp ./SeamFuzz-Artifact/patches/* ./fuzzbench/
+/workspace$ ./SeamFuzz-Artifact/scripts/apply_patches.sh ./fuzzbench
+/workspace$ ./SeamFuzz-Artifact/scripts/setup_script.sh ./fuzzbench ./SeamFuzz-Artifact
 ```
+
 The pip/python versions we used are as follows:
 
 
@@ -99,14 +98,11 @@ The pip/python versions we used are as follows:
 /workspace$ python3 -m pip –version
 pip 22.1.2 from /home/seamfuzz/.local/lib/python3.9/site-packages/pip (python 3.9)
 
-
 /workspace$ python3 –version
 Python 3.9.15
 ```
 
-
-Please make sure that we followed the commands above on the machine without any pre-installed packages. 
-
+Please make sure that we followed the commands above on the machine without any additional pre-installed packages after ubuntu installation. 
 
 
 ### Using VM(VirtualMachine) 
