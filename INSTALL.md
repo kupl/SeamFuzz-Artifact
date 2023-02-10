@@ -118,7 +118,7 @@ You can donwload the VM image from the following link.
 
 [SeamFuzz VM](https://doi.org/10.5281/zenodo.7578055)
 
-* Loading our VM image on VirtualBox with older version may raise an error.
+* Loading our VM image on VirtualBox with older version ( < 7.0) may raise an error.
 
 ## Building SeamFuzz without FuzzBench
 The source code for SeamFuzz is on ./fuzzbench/fuzzers/seamfuzz/afl. 
