@@ -55,7 +55,7 @@ please follow the command below.
 ```
 
 ### Example (Building artifact on Ubuntu 20.04.5)
-The instructions below guide the users to build our artifact on [Ubuntu 20.04.5](https://releases.ubuntu.com/focal) wihtout any pre-installed additional packages. 
+The instructions below guide the users to build our artifact on [Ubuntu 20.04.5](https://releases.ubuntu.com/focal) wihtout any additional packages pre-installed. 
 
 
 
